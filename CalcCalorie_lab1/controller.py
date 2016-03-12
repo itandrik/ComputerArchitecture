@@ -1,16 +1,20 @@
 import model
 import view
 
-
-def main(view): 
+def main():
   while(True): 
-	createMenu()
+	view.createMenu()
 	point = input()
 	if(point == 1):
-		calculate_calories(readGender, readWeigh, readHeight, readAge, readPA)
-	else(point == 2):
+		gender = view.readGender()
+		weight = view.readWeight()
+		height = view.readHeight()
+		age = view.readAge()
+		pa = view.readPA()
+		model.calculate_calories(gender, weight, height, age, pa)
+	elif(point == 2):
 		break
-	else
+	else:
 		print("Wrong input! Try again")
 
 
