@@ -1,3 +1,5 @@
+AUTO-GENERATED DOCUMENTATION
+=============================
 # Controlling work of program
 
 import model
@@ -17,9 +19,7 @@ def main():
                 height = view.readHeight()
                 age = view.readAge()
                 pa = view.readPA()
-                view.getInfo(model.calculate_calories(
-                    gender, weight, height, age, pa)
-                )
+                view.getInfo(model.calculate_calories(gender, weight, height, age, pa))
                 raw_input()
             elif(point == 2):
                 break
@@ -29,3 +29,4 @@ def main():
             print ("Wrong input! Try again")
 
 main()
+
