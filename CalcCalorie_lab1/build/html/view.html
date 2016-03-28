@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>&lt;no title&gt; &mdash; ComputerArchitecture 1.1.16 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.1.16',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="ComputerArchitecture 1.1.16 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">ComputerArchitecture 1.1.16 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <p># Printing all points to
+# choose to calculate calories</p>
+<p>str1 = [&#8220;Gender:&#8221;, &#8220;1.Male&#8221;, &#8220;2.Female&#8221;]
+str2 = [&#8220;Physical activity:&#8221;, &#8220;1.Minimum physical activity&#8221;,</p>
+<blockquote>
+<div>&#8220;2. 3 times per week&#8221;, &#8220;3. 5 times per week&#8221;,
+&#8220;4. Every day&#8221;, &#8220;5. 2 times per day&#8221;]</div></blockquote>
+<p># Printing menu of age choice
+def readAge():</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>while(True):</dt>
+<dd><dl class="first last docutils">
+<dt>try:</dt>
+<dd><p class="first">age = input(&#8220;Age: &#8221;)
+if((age &gt;= 13) &amp; (age &lt; 80)):</p>
+<blockquote>
+<div>break</div></blockquote>
+<dl class="last docutils">
+<dt>else:</dt>
+<dd>print(&#8220;Unreal age!&#8221;)
+print(&#8220;Repeat please, age should be between 13 and 80&#8221;)</dd>
+</dl>
+</dd>
+<dt>except NameError:</dt>
+<dd>print(&#8220;Wrong input! Repeat please&#8221;)</dd>
+</dl>
+</dd>
+</dl>
+<p>return age</p>
+</div></blockquote>
+<p># Printing menu of gender choice
+def readGender():</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>while(True):</dt>
+<dd><dl class="first last docutils">
+<dt>for i in str1:</dt>
+<dd>print i</dd>
+<dt>try:</dt>
+<dd><p class="first">gender = input()
+if((gender &gt; 0) &amp; (gender &lt; 3)):</p>
+<blockquote>
+<div>break</div></blockquote>
+<dl class="last docutils">
+<dt>else:</dt>
+<dd>print(&#8220;Wrong input! Repeat please&#8221;)</dd>
+</dl>
+</dd>
+<dt>except NameError:</dt>
+<dd>print(&#8220;Wrong input! Repeat please&#8221;)</dd>
+</dl>
+</dd>
+</dl>
+<p>return gender</p>
+</div></blockquote>
+<p># Printing menu of weight choice
+def readWeight():</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>while(True):</dt>
+<dd><dl class="first last docutils">
+<dt>try:</dt>
+<dd><p class="first">weight = input(&#8220;Weight: &#8221;)
+if((weight &gt;= 35) &amp; (weight &lt; 250)):</p>
+<blockquote>
+<div>break</div></blockquote>
+<dl class="last docutils">
+<dt>else:</dt>
+<dd>print(&#8220;Repeat please, weight should be between 35 and 250&#8221;)</dd>
+</dl>
+</dd>
+<dt>except NameError:</dt>
+<dd>print(&#8220;Wrong input! Repeat please&#8221;)</dd>
+</dl>
+</dd>
+</dl>
+<p>return weight</p>
+</div></blockquote>
+<p># Printing menu of height choice
+def readHeight():</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>while(True):</dt>
+<dd><dl class="first last docutils">
+<dt>try:</dt>
+<dd><p class="first">height = input(&#8220;Height in cm: &#8221;)
+if((height &gt;= 120) &amp; (height &lt; 250)):</p>
+<blockquote>
+<div>break</div></blockquote>
+<dl class="last docutils">
+<dt>else:</dt>
+<dd>print(&#8220;Repeat please, height should be between 120 and 250&#8221;)</dd>
+</dl>
+</dd>
+<dt>except NameError:</dt>
+<dd>print(&#8220;Wrong input! Repeat please&#8221;)</dd>
+</dl>
+</dd>
+</dl>
+<p>return height</p>
+</div></blockquote>
+<p># Printing menu of physical activity choice
+def readPA():</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>while(True):</dt>
+<dd><dl class="first last docutils">
+<dt>for i in str2:</dt>
+<dd>print i</dd>
+<dt>try:</dt>
+<dd><p class="first">pa = input()
+if((pa &gt;= 1) &amp; (pa &lt;= 5)):</p>
+<blockquote>
+<div>break</div></blockquote>
+<dl class="last docutils">
+<dt>else:</dt>
+<dd>print(&#8220;Wrong input! Repeat please...&#8221;)</dd>
+</dl>
+</dd>
+<dt>except NameError:</dt>
+<dd>print(&#8220;Wrong input! Repeat please&#8221;)</dd>
+</dl>
+</dd>
+</dl>
+<p>return pa</p>
+</div></blockquote>
+<p># Printing main menu
+def createMenu():</p>
+<blockquote>
+<div>print(&#8220;1. Calculate your calories&#8221;)
+print(&#8220;2. Exit&#8221;)</div></blockquote>
+<p># Printing result of program
+def getInfo(result):</p>
+<blockquote>
+<div>print (str(result) + &#8221; kilocalories&#8221;)</div></blockquote>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/view.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">ComputerArchitecture 1.1.16 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Chernysh Andrey, Kisilchuk Bogdan.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

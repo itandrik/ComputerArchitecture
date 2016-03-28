@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>&lt;no title&gt; &mdash; ComputerArchitecture 1.1.16 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.1.16',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="ComputerArchitecture 1.1.16 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">ComputerArchitecture 1.1.16 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <p># Creating model. Describing functions,
+# which calculate calories, using human parameters</p>
+<p># Calculating index of physical activity
+def calculate_pa(pa):</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>if pa == 1:</dt>
+<dd>return 1.2</dd>
+<dt>elif pa == 2:</dt>
+<dd>return 1.375</dd>
+<dt>elif pa == 3:</dt>
+<dd>return 1.4625</dd>
+<dt>elif pa == 4:</dt>
+<dd>return 1.6375</dd>
+<dt>elif pa == 5:</dt>
+<dd>return 1.725</dd>
+</dl>
+</div></blockquote>
+<p># Calculating calories, which spend person per day
+def calculate_calories(gender, weight, height, age, pa):</p>
+<blockquote>
+<div><p># Calculating with Harris-Benedict formula
+if gender == 1:</p>
+<blockquote>
+<div>calories1 = 66.5 + (13.75 * weight) + (5.003 * height) - (6.775 * age)</div></blockquote>
+<dl class="docutils">
+<dt>else:</dt>
+<dd>calories1 = 655.1 + (9.563 * weight) + (1.85 * height) - (4.676 * age)</dd>
+</dl>
+<p># Calculating with Muffin-Jeor formula
+if gender == 1:</p>
+<blockquote>
+<div>calories2 = 5 + (10*weight) + (6.25 * height) - (5 * age)</div></blockquote>
+<dl class="docutils">
+<dt>else:</dt>
+<dd>calories2 = (10 * weight) + (6.25 * height) - (5 * age) - 161</dd>
+</dl>
+<p># Average value for more accuracy value
+return calculate_pa(pa) * ((calories1 + calories2) / 2)</p>
+</div></blockquote>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/model.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">ComputerArchitecture 1.1.16 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Chernysh Andrey, Kisilchuk Bogdan.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
