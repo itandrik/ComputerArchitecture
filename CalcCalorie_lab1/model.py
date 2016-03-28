@@ -1,4 +1,4 @@
-# Creating model. Describing functions,
+ # Creating model. Describing functions,
 # which calculate calories, using human parameters
 
 """
@@ -20,8 +20,8 @@ Calculating calories :
 1799.277
 >>> calculate_calories(1,73,187,19,2)
 2534.01225
->>> calculate_calories(2,65,178,20,2)
-2072.1078125
+>>> abs(calculate_calories(2,65,178,20,2)-2072.10)<1e-2
+True
 """
 
 # Calculating index of physical activity

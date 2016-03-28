@@ -27,5 +27,5 @@ def main():
                 print("Wrong input! Try again")
         except NameError:
             print ("Wrong input! Try again")
-
+        #gitignore rm --cache якось так
 main()
