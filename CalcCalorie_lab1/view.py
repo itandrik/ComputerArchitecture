@@ -6,6 +6,8 @@ str1 = ["Gender:", "1.Male", "2.Female"]
 str2 = ["Physical activity:", "1.Minimum physical activity",
         "2. 3 times per week", "3. 5 times per week",
         "4. Every day", "5. 2 times per day"]
+str3 = ["1. Calculate your calories", "2. Get results from file", "3. Change configuration file", "4. Exit"]
+str4 = ["1.Pickle", "2. JSON", "3.YAML"]
 
 
 # Printing menu of age choice
@@ -85,8 +87,26 @@ def readPA():
 
 # Printing main menu
 def createMenu():
-    print("1. Calculate your calories")
-    print("2. Exit")
+    for i in str3:
+        print i
+
+
+def readSerializaionType():
+    s_type = 0
+    while(True):
+        for i in str4:
+            print i
+        try:
+            s_type = input()
+            if((s_type >= 1) & (s_type <= 3)):
+                break
+            else:
+                print("Wrong input! Repeat please...")
+        except NameError:
+            print("Wrong input! Repeat please")
+    if s_type == 1: return 'pickle'
+    elif s_type == 2: return 'json'
+    else: return 'yaml'
 
 
 # Printing result of program

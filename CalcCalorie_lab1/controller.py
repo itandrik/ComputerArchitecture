@@ -3,7 +3,6 @@
 import model
 import view
 
-
 # Transfers all choices to model
 # and model result to view, where result printing
 def main():
@@ -11,7 +10,7 @@ def main():
         view.createMenu()
         try:
             point = input()
-            if(point == 1):
+            if point == 1:
                 gender = view.readGender()
                 weight = view.readWeight()
                 height = view.readHeight()
@@ -21,7 +20,9 @@ def main():
                     gender, weight, height, age, pa)
                 )
                 raw_input()
-            elif(point == 2):
+            elif point == 2:
+            elif point == 3:
+            elif point == 4:
                 break
             else:
                 print("Wrong input! Try again")
@@ -29,3 +30,4 @@ def main():
             print ("Wrong input! Try again")
         #gitignore rm --cache якось так
 main()
+ 
