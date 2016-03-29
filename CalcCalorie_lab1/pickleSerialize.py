@@ -3,7 +3,7 @@ import pickle
 
 # Serializing of data to the .pickle file
 def pickle_dump(filename, data):
-    with open(filename + '.pickle', 'wt') as f:
+    with open(filename + '.pickle', 'at') as f:
         pickle.dump(data, f)
 
 
@@ -11,6 +11,12 @@ def pickle_dump(filename, data):
 def pickle_load(filename):
     try:
         with open(filename + '.pickle', 'rt') as f:
-            return pickle.load(f)
-    except OSError:
+            objs = []
+            while 1:
+                try:
+                    objs.append(pickle.load(f))
+                except EOFError:
+                    return objs
+
+    except IOError:
         print "File doesn't exist"

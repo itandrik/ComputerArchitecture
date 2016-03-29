@@ -12,5 +12,5 @@ def json_read(file_name):
     try:
         with open(file_name + '.json', 'rt') as file:
             return json.load(file)
-    except OSError:
+    except IOError:
         print('Such file does not exist!')
