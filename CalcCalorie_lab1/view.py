@@ -10,12 +10,13 @@ str3 = ("1. Calculate your calories", "2. Get results from file", "3. Change con
 str4 = ("1.Pickle", "2. JSON", "3.YAML")
 str5 = ("Do you want to write your result into the file?", "1.Yes", "2. No")
 
+
 # Printing menu of age choice
-def readAge():
-    while(True):
+def read_age():
+    while True:
         try:
             age = input("Age: ")
-            if((age >= 13) & (age < 80)):
+            if age >= 13 & age < 80:
                 break
             else:
                 print("Unreal age!")
@@ -26,13 +27,13 @@ def readAge():
 
 
 # Printing menu of gender choice
-def readGender():
-    while(True):
+def read_gender():
+    while True:
         for i in str1:
             print i
         try:
             gender = input()
-            if((gender > 0) & (gender < 3)):
+            if gender > 0 & gender < 3:
                 break
             else:
                 print("Wrong input! Repeat please")
@@ -42,11 +43,11 @@ def readGender():
 
 
 # Printing menu of weight choice
-def readWeight():
-    while(True):
+def read_weight():
+    while True:
         try:
             weight = input("Weight: ")
-            if((weight >= 35) & (weight < 250)):
+            if weight >= 35 & weight < 250:
                 break
             else:
                 print("Repeat please, weight should be between 35 and 250")
@@ -56,11 +57,11 @@ def readWeight():
 
 
 # Printing menu of height choice
-def readHeight():
-    while(True):
+def read_height():
+    while True:
         try:
             height = input("Height in cm: ")
-            if((height >= 120) & (height < 250)):
+            if height >= 120 & height < 250:
                 break
             else:
                 print("Repeat please, height should be between 120 and 250")
@@ -70,13 +71,13 @@ def readHeight():
 
 
 # Printing menu of physical activity choice
-def readPA():
-    while(True):
+def read_pa():
+    while True:
         for i in str2:
             print i
         try:
             pa = input()
-            if((pa >= 1) & (pa <= 5)):
+            if pa >= 1 & pa <= 5:
                 break
             else:
                 print("Wrong input! Repeat please...")
@@ -86,8 +87,8 @@ def readPA():
 
 
 # Printing main menu
-def createMenu():
-    while(True):
+def create_menu():
+    while True:
         for i in str3:
             print i
         try:
@@ -100,14 +101,15 @@ def createMenu():
             print ("Wrong input! Try again")
 
 
-def readSerializaionType():
+# Printing menu for choosing type of serialization
+def read_serialization_type():
     s_type = 0
-    while(True):
+    while True:
         for i in str4:
             print i
         try:
             s_type = input()
-            if((s_type >= 1) & (s_type <= 3)):
+            if s_type >= 1 & s_type <= 3:
                 break
             else:
                 print("Wrong input! Repeat please...")
@@ -118,8 +120,10 @@ def readSerializaionType():
     else: return 'yaml'
 
 
-def isDump():
-    while(True):
+# Checking dump function
+# return boolean
+def is_dump():
+    while True:
         for i in str5:
             print i
         try:
@@ -133,11 +137,12 @@ def isDump():
             print("Wrong input! Repeat please")
 
 
-def changeSerializationFile():
+# Printing menu, where user can change type of serialization and dump filename
+def change_serialization_file():
     inp = raw_input("Enter your file name(without file format) : ")
-    return (readSerializaionType(), inp)
+    return read_serialization_type(), inp
 
 
 # Printing result of program
-def getInfo(result):
+def get_info(result):
     print (str(result) + " kilocalories")
