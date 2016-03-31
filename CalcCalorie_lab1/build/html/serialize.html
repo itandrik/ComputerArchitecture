@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>&lt;no title&gt; &mdash; ComputerArchitecture 1.1.16 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.1.16',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="ComputerArchitecture 1.1.16 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">ComputerArchitecture 1.1.16 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <p>import ConfigParser
+import pickleSerialize
+import jsonSerialize
+import yamlSerialize
+import view
+parser = ConfigParser.SafeConfigParser()</p>
+<dl class="docutils">
+<dt>def change_config(type, filename):</dt>
+<dd><p class="first">cfgfile = open(&#8220;config.ini&#8221;, &#8216;w&#8217;)
+config = ConfigParser.ConfigParser()
+# add the settings to the structure of the file, and lets write it out...
+if not config.has_section(&#8216;serialization&#8217;):</p>
+<blockquote>
+<div>config.add_section(&#8216;serialization&#8217;)</div></blockquote>
+<p class="last">config.set(&#8216;serialization&#8217;, &#8216;name&#8217;, type)
+config.set(&#8216;serialization&#8217;, &#8216;filename&#8217;, filename)
+config.write(cfgfile)
+cfgfile.close()</p>
+</dd>
+<dt>def read_config():</dt>
+<dd><dl class="first last docutils">
+<dt>try:</dt>
+<dd><p class="first">parser = ConfigParser.SafeConfigParser()
+parser.read(&#8216;config.ini&#8217;)
+return parser.get(&#8216;serialization&#8217;, &#8216;name&#8217;),</p>
+<blockquote class="last">
+<div>parser.get(&#8216;serialization&#8217;, &#8216;filename&#8217;)</div></blockquote>
+</dd>
+<dt>except ConfigParser.ParsingError, err:</dt>
+<dd>print &#8216;Could not parse:&#8217;, err</dd>
+</dl>
+</dd>
+<dt>def makePrettyOutput(fn):</dt>
+<dd><dl class="first docutils">
+<dt>def wrapped():</dt>
+<dd><p class="first">iterator = 1
+try:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>for i in fn():</dt>
+<dd><dl class="first docutils">
+<dt>if i[0] == 1:</dt>
+<dd>gender = &#8216;male&#8217;</dd>
+<dt>else:</dt>
+<dd>gender = &#8216;female&#8217;</dd>
+<dt>print &#8216;%d. Gender <span class="classifier-delimiter">:</span> <span class="classifier">%s; Weight</span> <span class="classifier-delimiter">:</span> <span class="classifier">%dkg; Height</span> <span class="classifier-delimiter">:</span> <span class="classifier">%dsm;\n&#8217; \</span></dt>
+<dd><p class="first">&#8216; Age : %d; Physical activity : %s; Calories : %f&#8217; %(iterator, gender, i[1], i[2],</p>
+<blockquote class="last">
+<div>i[3], view.str2[i[4]], i[5])</div></blockquote>
+</dd>
+</dl>
+<p class="last">iterator += 1
+print &#8216;n&#8217;</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="last docutils">
+<dt>except TypeError:</dt>
+<dd>print &#8220;No file! You must dump smth&#8221;</dd>
+</dl>
+</dd>
+</dl>
+<p class="last">return wrapped</p>
+</dd>
+</dl>
+<p>&#64;makePrettyOutput
+def load():</p>
+<blockquote>
+<div><p>serial = read_config()
+if serial[0] == &#8216;pickle&#8217;:</p>
+<blockquote>
+<div>return pickleSerialize.pickle_load(serial[1])</div></blockquote>
+<dl class="docutils">
+<dt>elif serial[0] == &#8220;json&#8221;:</dt>
+<dd>return jsonSerialize.json_read(serial[1])</dd>
+<dt>elif serial[0] == &#8220;yaml&#8221;:</dt>
+<dd>return yamlSerialize.yaml_read(serial[1])</dd>
+</dl>
+</div></blockquote>
+<dl class="docutils">
+<dt>def dump(data):</dt>
+<dd><p class="first">serial = read_config()
+if serial[0] == &#8216;pickle&#8217;:</p>
+<blockquote>
+<div>return pickleSerialize.pickle_dump(serial[1], data)</div></blockquote>
+<dl class="last docutils">
+<dt>elif serial[0] == &#8220;json&#8221;:</dt>
+<dd>return jsonSerialize.json_dump(serial[1], data)</dd>
+<dt>elif serial[0] == &#8220;yaml&#8221;:</dt>
+<dd>return yamlSerialize.yaml_write(serial[1], data)</dd>
+</dl>
+</dd>
+</dl>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/serialize.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">ComputerArchitecture 1.1.16 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Chernysh Andrey, Kisilchuk Bogdan.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

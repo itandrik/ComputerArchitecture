@@ -6,7 +6,8 @@ str1 = ("Gender:", "1.Male", "2.Female")
 str2 = ("Physical activity:", "1.Minimum physical activity",
         "2. 3 times per week", "3. 5 times per week",
         "4. Every day", "5. 2 times per day")
-str3 = ("1. Calculate your calories", "2. Get results from file", "3. Change configuration file", "4. Exit")
+str3 = ("1. Calculate your calories", "2. Get results from file",
+        "3. Change configuration file", "4. Exit")
 str4 = ("1.Pickle", "2. JSON", "3.YAML")
 str5 = ("Do you want to write your result into the file?", "1.Yes", "2. No")
 
@@ -93,7 +94,7 @@ def create_menu():
             print i
         try:
             point = input()
-            if point >=1 & point <= 4:
+            if point >= 1 & point <= 4:
                 return point
             else:
                 print("Wrong input! Try again")
@@ -115,9 +116,12 @@ def read_serialization_type():
                 print("Wrong input! Repeat please...")
         except (NameError, SyntaxError):
             print("Wrong input! Repeat please")
-    if s_type == 1: return 'pickle'
-    elif s_type == 2: return 'json'
-    else: return 'yaml'
+    if s_type == 1:
+        return 'pickle'
+    elif s_type == 2:
+        return 'json'
+    else:
+        return 'yaml'
 
 
 # Checking dump function
@@ -130,7 +134,8 @@ def is_dump():
             inp = input()
             if inp == 1:
                 return True
-            elif inp == 2: return False
+            elif inp == 2:
+                return False
             else:
                 print("Wrong input! Repeat please...")
         except (NameError, SyntaxError):

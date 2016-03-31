@@ -1,5 +1,27 @@
-# Creating model. Describing functions,
+ # Creating model. Describing functions,
 # which calculate calories, using human parameters
+
+"""
+Testing module :
+Calculating physical activity procedure :
+>>> calculate_pa(1)
+1.2
+>>> calculate_pa(2)
+1.375
+>>> calculate_pa(3)
+1.4625
+>>> calculate_pa(4)
+1.6375
+>>> calculate_pa(5)
+1.725
+Calculating calories :
+>>> calculate_calories(1,54,165,18,1)
+1799.277
+>>> calculate_calories(1,73,187,19,2)
+2534.01225
+>>> abs(calculate_calories(2,65,178,20,2)-2072.10)<1e-2
+True
+"""
 
 
 # Calculating index of physical activity
@@ -33,3 +55,8 @@ def calculate_calories(gender, weight, height, age, pa):
 
     # Average value for more accuracy value
     return calculate_pa(pa) * ((calories1 + calories2) / 2)
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
