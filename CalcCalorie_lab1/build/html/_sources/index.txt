@@ -14,6 +14,11 @@ Contents:
     controller
     model
     view
+    fileModifying
+    jsonSerialize
+    yamlSerialize
+    pickleSerialize
+    serialize
 
 Indices and tables
 ==================
