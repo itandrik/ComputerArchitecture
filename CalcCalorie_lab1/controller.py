@@ -10,7 +10,7 @@ import serialize
 # Creating possibility to change cpnfig files and to dump some information
 def main():
     while True:
-        point = view.createMenu()
+        point = view.create_menu()
         if point == 1:
             gender = view.read_gender()
             weight = view.read_weight()
@@ -27,7 +27,7 @@ def main():
         elif point == 2:
             serialize.load()
         elif point == 3:
-            data = view.read_serialization_file()
+            data = view.change_serialization_file()
             serialize.change_config(data[0], data[1])
         elif point == 4:
             break

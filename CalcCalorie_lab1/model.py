@@ -3,7 +3,7 @@
 
 """
 Testing module :
-Calculating physical activity procedure : 
+Calculating physical activity procedure :
 >>> calculate_pa(1)
 1.2
 >>> calculate_pa(2)
@@ -14,8 +14,7 @@ Calculating physical activity procedure :
 1.6375
 >>> calculate_pa(5)
 1.725
-
-Calculating calories : 
+Calculating calories :
 >>> calculate_calories(1,54,165,18,1)
 1799.277
 >>> calculate_calories(1,73,187,19,2)
@@ -23,6 +22,7 @@ Calculating calories :
 >>> abs(calculate_calories(2,65,178,20,2)-2072.10)<1e-2
 True
 """
+
 
 # Calculating index of physical activity
 def calculate_pa(pa):

@@ -4,29 +4,36 @@ AUTO-GENERATED DOCUMENTATION
 
 import model
 import view
+import serialize
 
 
 # Transfers all choices to model
-# and model result to view, where result printing
+# and model result to view, where result printing.
+# Creating possibility to change cpnfig files and to dump some information
 def main():
-    while(True):
-        view.createMenu()
-        try:
-            point = input()
-            if(point == 1):
-                gender = view.readGender()
-                weight = view.readWeight()
-                height = view.readHeight()
-                age = view.readAge()
-                pa = view.readPA()
-                view.getInfo(model.calculate_calories(gender, weight, height, age, pa))
-                raw_input()
-            elif(point == 2):
-                break
-            else:
-                print("Wrong input! Try again")
-        except NameError:
-            print ("Wrong input! Try again")
+    while True:
+        point = view.create_menu()
+        if point == 1:
+            gender = view.read_gender()
+            weight = view.read_weight()
+            height = view.read_height()
+            age = view.read_age()
+            pa = view.read_pa()
+            calories = model.calculate_calories(
+                gender, weight, height, age, pa)
+            view.get_info(calories)
+            data = (gender, weight, height, age, pa, calories)
+            raw_input()
+            if view.is_dump():
+                serialize.dump(data)
+        elif point == 2:
+            serialize.load()
+        elif point == 3:
+            data = view.change_serialization_file()
+            serialize.change_config(data[0], data[1])
+        elif point == 4:
+            break
 
 main()
+
 

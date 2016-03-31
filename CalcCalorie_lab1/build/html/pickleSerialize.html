@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>AUTO-GENERATED DOCUMENTATION &mdash; ComputerArchitecture 1.1.16 documentation</title>
+    <title>&lt;no title&gt; &mdash; ComputerArchitecture 1.1.16 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -41,51 +41,39 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="auto-generated-documentation">
-<h1>AUTO-GENERATED DOCUMENTATION<a class="headerlink" href="#auto-generated-documentation" title="Permalink to this headline">¶</a></h1>
-<p># Controlling work of program</p>
-<p>import model
-import view
-import serialize</p>
-<p># Transfers all choices to model
-# and model result to view, where result printing.
-# Creating possibility to change cpnfig files and to dump some information
-def main():</p>
+  <p>import pickle</p>
+<p># Serializing of data to the .pickle file
+def pickle_dump(filename, data):</p>
 <blockquote>
 <div><dl class="docutils">
-<dt>while True:</dt>
-<dd><p class="first">point = view.create_menu()
-if point == 1:</p>
-<blockquote>
-<div><p>gender = view.read_gender()
-weight = view.read_weight()
-height = view.read_height()
-age = view.read_age()
-pa = view.read_pa()
-calories = model.calculate_calories(</p>
-<blockquote>
-<div>gender, weight, height, age, pa)</div></blockquote>
-<p>view.get_info(calories)
-data = (gender, weight, height, age, pa, calories)
-raw_input()
-if view.is_dump():</p>
-<blockquote>
-<div>serialize.dump(data)</div></blockquote>
-</div></blockquote>
-<dl class="last docutils">
-<dt>elif point == 2:</dt>
-<dd>serialize.load()</dd>
-<dt>elif point == 3:</dt>
-<dd>data = view.change_serialization_file()
-serialize.change_config(data[0], data[1])</dd>
-<dt>elif point == 4:</dt>
-<dd>break</dd>
+<dt>with open(filename + &#8216;.pickle&#8217;, &#8216;at&#8217;) as f:</dt>
+<dd>pickle.dump(data, f)</dd>
 </dl>
+</div></blockquote>
+<p># Deserialization of data from the .pickle file
+def pickle_load(filename):</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>try:</dt>
+<dd><dl class="first last docutils">
+<dt>with open(filename + &#8216;.pickle&#8217;, &#8216;rt&#8217;) as f:</dt>
+<dd><p class="first">objs = []
+while 1:</p>
+<blockquote class="last">
+<div><dl class="docutils">
+<dt>try:</dt>
+<dd>objs.append(pickle.load(f))</dd>
+<dt>except EOFError:</dt>
+<dd>return objs</dd>
+</dl>
+</div></blockquote>
 </dd>
 </dl>
+</dd>
+<dt>except IOError:</dt>
+<dd>print &#8220;File doesn&#8217;t exist&#8221;</dd>
+</dl>
 </div></blockquote>
-<p>main()</p>
-</div>
 
 
           </div>
@@ -95,7 +83,7 @@ serialize.change_config(data[0], data[1])</dd>
         <div class="sphinxsidebarwrapper">
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/controller.txt"
+    <li><a href="_sources/pickleSerialize.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
