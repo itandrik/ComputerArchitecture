@@ -2,7 +2,7 @@ import json
 
 
 # Serializing data object to .json file
-def json_write(file_name, data):
+def json_dump(file_name, data):
     with open(file_name + '.json', 'wt') as file:
         json.dump(data, file)
 
@@ -10,7 +10,13 @@ def json_write(file_name, data):
 # Deserialization of .json file
 def json_read(file_name):
     try:
-        with open(file_name + '.json', 'rt') as file:
-            return json.load(file)
+        with open(file_name + '.json', 'rt') as f:
+            objs = []
+            while 1:
+                try:
+                    objs.append(json.load(f))
+                except EOFError:
+                    return objs
+
     except IOError:
-        print('Such file does not exist!')
+        print "File doesn't exist"
