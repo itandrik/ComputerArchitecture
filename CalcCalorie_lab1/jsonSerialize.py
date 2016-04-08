@@ -1,22 +1,20 @@
 import json
 
 
-# Serializing data object to .json file
-def json_dump(file_name, data):
-    with open(file_name + '.json', 'wt') as file:
-        json.dump(data, file)
+class Json:
 
+    def __init__(self, file_name):
+        self.file_name = file_name
 
-# Deserialization of .json file
-def json_read(file_name):
-    try:
-        with open(file_name + '.json', 'rt') as f:
-            objs = []
-            while 1:
-                try:
-                    objs.append(json.load(f))
-                except EOFError:
-                    return objs
+    # Serializing data object to .json file
+    def dump(self, data):
+        with open(self.file_name + '.json', 'wt') as f:
+            json.dump(data, f)
 
-    except IOError:
-        print "File doesn't exist"
+    # Deserialization of .json file
+    def read(self):
+        try:
+            with open(self.file_name + '.json', 'rt') as f:
+                return json.load(f)
+        except IOError:
+            print "File doesn't exist"
