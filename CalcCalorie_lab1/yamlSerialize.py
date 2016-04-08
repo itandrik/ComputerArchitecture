@@ -1,21 +1,20 @@
 import yaml
 
 
-# Serializing data object to .yaml file
-def yaml_write(file_name, data):
-    with open(file_name + '.yaml', 'wt') as file:
-        yaml.dump(data, file)
+class Yaml:
 
+    def __init__(self, file_name):
+        self.file_name = file_name
 
-# Deserialization of .yaml file
-def yaml_read(file_name):
-    try:
-        with open(file_name + '.yaml', 'rt') as f:
-            objs = []
-            while 1:
-                try:
-                    objs.append(yaml.load(f))
-                except EOFError:
-                    return objs
-    except IOError:
-        print('Such file does not exist!')
+    # Serializing data object to .yaml file
+    def dump(self, data):
+        with open(self.file_name + '.yaml', 'wt') as f:
+            yaml.dump(data, f)
+
+    # Deserialization of .yaml file
+    def read(self):
+        try:
+            with open(self.file_name + '.yaml', 'rt') as f:
+                return yaml.load(f)
+        except IOError:
+            print('Such file does not exist!')
