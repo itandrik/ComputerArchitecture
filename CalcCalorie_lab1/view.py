@@ -2,14 +2,15 @@
 # choose to calculate calories
 
 class View:
-    str1 = ("Gender:", "1.Male", "2.Female")
-    str2 = ("Physical activity:", "1.Minimum physical activity",
-            "2. 3 times per week", "3. 5 times per week",
-            "4. Every day", "5. 2 times per day")
-    str3 = ("1. Calculate your calories", "2. Get results from file",
-            "3. Change configuration file", "4. Exit")
-    str4 = ("1.Pickle", "2. JSON", "3.YAML")
-    str5 = ("Do you want to write your result into the file?", "1.Yes", "2. No")
+    def __init__(self):
+        self.str1 = ("Gender:", "1.Male", "2.Female")
+        self.str2 = ("Physical activity:", "1.Minimum physical activity",
+                "2. 3 times per week", "3. 5 times per week",
+                "4. Every day", "5. 2 times per day")
+        self.str3 = ("1. Calculate your calories", "2. Get results from file",
+                "3. Change configuration file", "4. Exit")
+        self.str4 = ("1.Pickle", "2. JSON", "3.YAML")
+        self.str5 = ("Do you want to write your result into the file?", "1.Yes", "2. No")
 
 
     # Printing menu of age choice
@@ -34,7 +35,7 @@ class View:
                 print i
             try:
                 gender = input()
-                if gender > 0 & gender < 3:
+                if ((gender > 0) & (gender < 3)):
                     break
                 else:
                     print("Wrong input! Repeat please")
@@ -48,7 +49,7 @@ class View:
         while True:
             try:
                 weight = input("Weight: ")
-                if weight >= 35 & weight < 250:
+                if ((weight >= 35) & (weight < 250)):
                     break
                 else:
                     print("Repeat please, weight should be between 35 and 250")
@@ -62,7 +63,7 @@ class View:
         while True:
             try:
                 height = input("Height in cm: ")
-                if height >= 120 & height < 250:
+                if ((height >= 120) & (height < 250)):
                     break
                 else:
                     print("Repeat please, height should be between 120 and 250")
@@ -78,7 +79,7 @@ class View:
                 print i
             try:
                 pa = input()
-                if pa >= 1 & pa <= 5:
+                if ((pa >= 1) & (pa <= 5)):
                     break
                 else:
                     print("Wrong input! Repeat please...")
@@ -94,7 +95,7 @@ class View:
                 print i
             try:
                 point = input()
-                if point >= 1 & point <= 4:
+                if ((point >= 1) & (point <= 4)):
                     return point
                 else:
                     print("Wrong input! Try again")
@@ -110,7 +111,7 @@ class View:
                 print i
             try:
                 s_type = input()
-                if s_type >= 1 & s_type <= 3:
+                if ((s_type >= 1) & (s_type <= 3)):
                     break
                 else:
                     print("Wrong input! Repeat please...")
@@ -149,5 +150,5 @@ class View:
 
 
     # Printing result of program
-    def get_info(result):
-        print (str(result) + " kilocalories")
+    def get_info(self, res):
+        print (str(res) + " kilocalories")
