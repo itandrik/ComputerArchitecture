@@ -32,7 +32,7 @@ class View:
     def read_gender(self):
         while True:
             for i in self.str1:
-                print i
+                print (i)
             try:
                 gender = input()
                 if ((gender > 0) & (gender < 3)):
@@ -76,7 +76,7 @@ class View:
     def read_pa(self):
         while True:
             for i in self.str2:
-                print i
+                print (i)
             try:
                 pa = input()
                 if ((pa >= 1) & (pa <= 5)):
@@ -92,7 +92,7 @@ class View:
     def create_menu(self):
         while True:
             for i in self.str3:
-                print i
+                print (i)
             try:
                 point = input()
                 if ((point >= 1) & (point <= 4)):
@@ -108,7 +108,7 @@ class View:
         s_type = 0
         while True:
             for i in self.str4:
-                print i
+                print (i)
             try:
                 s_type = input()
                 if ((s_type >= 1) & (s_type <= 3)):
@@ -130,7 +130,7 @@ class View:
     def is_dump(self):
         while True:
             for i in self.str5:
-                print i
+                print (i)
             try:
                 inp = input()
                 if inp == 1:

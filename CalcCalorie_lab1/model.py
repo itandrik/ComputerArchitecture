@@ -52,8 +52,8 @@ class Model:
             gender = 'male'
         else:
             gender = 'female'
-        print 'Gender : %s; Weight : %dkg; Height : %dsm;\n' \
-              ' Age : %d; Physical activity : %s; Calories : %f' % \
+        print ('Gender : %s; Weight : %dkg; Height : %dsm;\n'
+              ' Age : %d; Physical activity : %s; Calories : %f') % \
               ( gender, self.weight, self.height,
                self.age, View().str2[self.pa], self.calculate_calories())
 
