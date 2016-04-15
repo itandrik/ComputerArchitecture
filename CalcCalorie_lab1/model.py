@@ -4,13 +4,6 @@ from view import View
 
 
 class Model:
-    def __init__(self, gender, weight, height, age, pa):
-        self.gender = gender
-        self.weight = weight
-        self.height = height
-        self.age = age
-        self.pa = pa
-
     # Calculating index of physical activity
     def _calculate_pa(self):
         if self.pa == 1:
@@ -25,8 +18,13 @@ class Model:
             return 1.725
 
     # Calculating calories, which spend person per day
-    def calculate_calories(self):
+    def calculate_calories(self, gender, weight, height, age, pa):
         # Calculating with Harris-Benedict formula
+        self.gender = gender
+        self.weight = weight
+        self.height = height
+        self.age = age
+        self.pa = pa
         if self.compare():
             calories1 = 66.5 + (13.75 * self.weight) + (5.003 * self.height) - (6.775 * self.age)
         else:
