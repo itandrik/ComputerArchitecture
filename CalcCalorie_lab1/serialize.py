@@ -8,7 +8,7 @@ from view import View
 class Serialize:
 
     def __init__(self):
-        self.parser = configparser.SafeConfigParser()
+        self.parser = configparser.ConfigParser()
 
     @staticmethod
     def change_config(serialization_type, filename):

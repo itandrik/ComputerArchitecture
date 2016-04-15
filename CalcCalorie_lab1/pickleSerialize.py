@@ -3,7 +3,7 @@ import pickle
 
 class Pickle:
 
-    def __init__(self,file_name):
+    def __init__(self, file_name):
         self.file_name = file_name
 
     # Serializing of data to the .pickle file
@@ -17,4 +17,4 @@ class Pickle:
             with open(self.file_name + '.pickle', 'rt') as f:
                 return pickle.load(f)
         except IOError:
-            print ("File doesn't exist")
+            print("File doesn't exist")

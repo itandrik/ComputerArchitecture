@@ -36,25 +36,25 @@ class Model:
         if self.compare():
             calories2 = 5 + (10 * self.weight) + (6.25 * self.height) - (5 * self.age)
         else:
-            calories2 = (10 * self.weight) + (6.25 *self. height) - (5 * self.age) - 161
+            calories2 = (10 * self.weight) + (6.25 * self. height) - (5 * self.age) - 161
 
         # Average value for more accuracy value
         return self._calculate_pa() * ((calories1 + calories2) / 2)
 
     def compare(self):
-        if (self.gender == 1):
+        if self.gender == 1:
             return True
         else:
             return False
 
     def get_info(self):
-        if (self.compare()):
+        if self.compare():
             gender = 'male'
         else:
             gender = 'female'
-        print 'Gender : %s; Weight : %dkg; Height : %dsm;\n' \
-              ' Age : %d; Physical activity : %s; Calories : %f' % \
-              ( gender, self.weight, self.height,
+        print ('Gender : %s; Weight : %dkg; Height : %dsm;\n'
+               ' Age : %d; Physical activity : %s; Calories : %f') % \
+              (gender, self.weight, self.height,
                self.age, View().str2[self.pa], self.calculate_calories())
 
 

@@ -24,8 +24,7 @@ class ControllerArgs:
                             metavar='|Physical activity : 1 - Minimum physical activity' \
                             '2 - 3 times per week 3 - 5 times per week' \
                             '4 - Every day 5 - 2 times per day|')
-        group.add_argument('--weight', '-w', required=True, choices=range(35, 239, 1),
-                           type=int, metavar='|WEIGHT >34 and <240|')
+        group.add_argument('--weight', '-w', required=True, choices=range(35, 239, 1), type=int, metavar='|WEIGHT >34 and <240|')
         group.add_argument('--height', '-ht', required=True, choices=range(120, 249, 1), type=int,
                            metavar='|HEIGHT >119 and <250|')
         group.add_argument('--age', '-a', required=True, choices=range(13, 79, 1), type=int,
