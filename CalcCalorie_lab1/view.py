@@ -2,6 +2,7 @@
 # choose to calculate calories
 
 class View:
+<<<<<<< HEAD
     def __init__(self):
         self.str1 = ("Gender:", "1.Male", "2.Female")
         self.str2 = ("Physical activity:", "1.Minimum physical activity",
@@ -11,6 +12,16 @@ class View:
                 "3. Change configuration file", "4. Exit")
         self.str4 = ("1.Pickle", "2. JSON", "3.YAML")
         self.str5 = ("Do you want to write your result into the file?", "1.Yes", "2. No")
+=======
+    str1 = ("Gender:", "1.Male", "2.Female")
+    str2 = ("Physical activity:", "1.Minimum physical activity",
+            "2. 3 times per week", "3. 5 times per week",
+            "4. Every day", "5. 2 times per day")
+    str3 = ("1. Calculate your calories", "2. Get results from file",
+            "3. Change configuration file", "4. Exit")
+    str4 = ("1.Pickle", "2. JSON", "3.YAML")
+    str5 = ("Do you want to write your result into the file?", "1.Yes", "2. No")
+>>>>>>> d99509dc60f8acc45727943d2fbec84dc766b4d2
 
 
     # Printing menu of age choice
@@ -32,10 +43,17 @@ class View:
     def read_gender(self):
         while True:
             for i in self.str1:
+<<<<<<< HEAD
                 print (i)
             try:
                 gender = eval(input())
                 if ((gender > 0) & (gender < 3)):
+=======
+                print i
+            try:
+                gender = input()
+                if gender > 0 & gender < 3:
+>>>>>>> d99509dc60f8acc45727943d2fbec84dc766b4d2
                     break
                 else:
                     print("Wrong input! Repeat please")
@@ -48,8 +66,13 @@ class View:
     def read_weight(self):
         while True:
             try:
+<<<<<<< HEAD
                 weight = eval(input("Weight: "))
                 if ((weight >= 35) & (weight < 250)):
+=======
+                weight = input("Weight: ")
+                if weight >= 35 & weight < 250:
+>>>>>>> d99509dc60f8acc45727943d2fbec84dc766b4d2
                     break
                 else:
                     print("Repeat please, weight should be between 35 and 250")
@@ -62,8 +85,13 @@ class View:
     def read_height(self):
         while True:
             try:
+<<<<<<< HEAD
                 height = eval(input("Height in cm: "))
                 if ((height >= 120) & (height < 250)):
+=======
+                height = input("Height in cm: ")
+                if height >= 120 & height < 250:
+>>>>>>> d99509dc60f8acc45727943d2fbec84dc766b4d2
                     break
                 else:
                     print("Repeat please, height should be between 120 and 250")
@@ -76,10 +104,17 @@ class View:
     def read_pa(self):
         while True:
             for i in self.str2:
+<<<<<<< HEAD
                 print (i)
             try:
                 pa = eval(input())
                 if ((pa >= 1) & (pa <= 5)):
+=======
+                print i
+            try:
+                pa = input()
+                if pa >= 1 & pa <= 5:
+>>>>>>> d99509dc60f8acc45727943d2fbec84dc766b4d2
                     break
                 else:
                     print("Wrong input! Repeat please...")
@@ -92,10 +127,17 @@ class View:
     def create_menu(self):
         while True:
             for i in self.str3:
+<<<<<<< HEAD
                 print (i)
             try:
                 point = eval(input())
                 if ((point >= 1) & (point <= 4)):
+=======
+                print i
+            try:
+                point = input()
+                if point >= 1 & point <= 4:
+>>>>>>> d99509dc60f8acc45727943d2fbec84dc766b4d2
                     return point
                 else:
                     print("Wrong input! Try again")
@@ -108,10 +150,17 @@ class View:
         s_type = 0
         while True:
             for i in self.str4:
+<<<<<<< HEAD
                 print (i)
             try:
                 s_type = eval(input())
                 if ((s_type >= 1) & (s_type <= 3)):
+=======
+                print i
+            try:
+                s_type = input()
+                if s_type >= 1 & s_type <= 3:
+>>>>>>> d99509dc60f8acc45727943d2fbec84dc766b4d2
                     break
                 else:
                     print("Wrong input! Repeat please...")
@@ -130,9 +179,15 @@ class View:
     def is_dump(self):
         while True:
             for i in self.str5:
+<<<<<<< HEAD
                 print (i)
             try:
                 inp = eval(input())
+=======
+                print i
+            try:
+                inp = input()
+>>>>>>> d99509dc60f8acc45727943d2fbec84dc766b4d2
                 if inp == 1:
                     return True
                 elif inp == 2:
@@ -145,10 +200,19 @@ class View:
 
     # Printing menu, where user can change type of serialization and dump filename
     def change_serialization_file(self):
+<<<<<<< HEAD
         inp = input("Enter your file name(without file format) : ")
+=======
+        inp = raw_input("Enter your file name(without file format) : ")
+>>>>>>> d99509dc60f8acc45727943d2fbec84dc766b4d2
         return self.read_serialization_type(), inp
 
 
     # Printing result of program
+<<<<<<< HEAD
     def get_info(self, res):
         print (str(res) + " kilocalories")
+=======
+    def get_info(result):
+        print (str(result) + " kilocalories")
+>>>>>>> d99509dc60f8acc45727943d2fbec84dc766b4d2

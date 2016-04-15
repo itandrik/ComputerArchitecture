@@ -1,6 +1,31 @@
 from view import View
  # Creating model. Describing functions,
 # which calculate calories, using human parameters
+<<<<<<< HEAD
+=======
+"""
+Testing module :
+Calculating physical activity procedure :
+>>> calculate_pa(1)
+1.2
+>>> calculate_pa(2)
+1.375
+>>> calculate_pa(3)
+1.4625
+>>> calculate_pa(4)
+1.6375
+>>> calculate_pa(5)
+1.725
+Calculating calories :
+>>> calculate_calories(1,54,165,18,1)
+1799.277
+>>> calculate_calories(1,73,187,19,2)
+2534.01225
+>>> abs(calculate_calories(2,65,178,20,2)-2072.10)<1e-2
+True
+"""
+import view
+>>>>>>> d99509dc60f8acc45727943d2fbec84dc766b4d2
 
 
 class Model:
@@ -55,7 +80,11 @@ class Model:
         print 'Gender : %s; Weight : %dkg; Height : %dsm;\n' \
               ' Age : %d; Physical activity : %s; Calories : %f' % \
               ( gender, self.weight, self.height,
+<<<<<<< HEAD
                self.age, View().str2[self.pa], self.calculate_calories())
+=======
+               self.age, view.str2[self.pa], self.calculate_calories())
+>>>>>>> d99509dc60f8acc45727943d2fbec84dc766b4d2
 
 
 if __name__ == "__main__":
