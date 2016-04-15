@@ -17,7 +17,7 @@ class View:
     def read_age(self):
         while True:
             try:
-                age = input("Age: ")
+                age = eval(input("Age: "))
                 if age >= 13 & age < 80:
                     break
                 else:
@@ -34,7 +34,7 @@ class View:
             for i in self.str1:
                 print (i)
             try:
-                gender = input()
+                gender = eval(input())
                 if ((gender > 0) & (gender < 3)):
                     break
                 else:
@@ -48,7 +48,7 @@ class View:
     def read_weight(self):
         while True:
             try:
-                weight = input("Weight: ")
+                weight = eval(input("Weight: "))
                 if ((weight >= 35) & (weight < 250)):
                     break
                 else:
@@ -62,7 +62,7 @@ class View:
     def read_height(self):
         while True:
             try:
-                height = input("Height in cm: ")
+                height = eval(input("Height in cm: "))
                 if ((height >= 120) & (height < 250)):
                     break
                 else:
@@ -78,7 +78,7 @@ class View:
             for i in self.str2:
                 print (i)
             try:
-                pa = input()
+                pa = eval(input())
                 if ((pa >= 1) & (pa <= 5)):
                     break
                 else:
@@ -94,7 +94,7 @@ class View:
             for i in self.str3:
                 print (i)
             try:
-                point = input()
+                point = eval(input())
                 if ((point >= 1) & (point <= 4)):
                     return point
                 else:
@@ -110,7 +110,7 @@ class View:
             for i in self.str4:
                 print (i)
             try:
-                s_type = input()
+                s_type = eval(input())
                 if ((s_type >= 1) & (s_type <= 3)):
                     break
                 else:
@@ -132,7 +132,7 @@ class View:
             for i in self.str5:
                 print (i)
             try:
-                inp = input()
+                inp = eval(input())
                 if inp == 1:
                     return True
                 elif inp == 2:
@@ -145,7 +145,7 @@ class View:
 
     # Printing menu, where user can change type of serialization and dump filename
     def change_serialization_file(self):
-        inp = raw_input("Enter your file name(without file format) : ")
+        inp = input("Enter your file name(without file format) : ")
         return self.read_serialization_type(), inp
 
 

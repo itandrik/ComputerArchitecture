@@ -38,6 +38,7 @@ class Controller:
         calories = model.calculate_calories()
         self.view.get_info(calories)
         data = (gender, weight, height, age, pa, calories)
-        raw_input()
+        input()
         if self.view.is_dump():
             self.serialize.dump(data)
+

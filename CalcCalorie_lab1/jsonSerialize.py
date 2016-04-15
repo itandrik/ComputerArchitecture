@@ -17,4 +17,4 @@ class Json:
             with open(self.file_name + '.json', 'rt') as f:
                 return json.load(f)
         except IOError:
-            print "File doesn't exist"
+            print ("File doesn't exist")
