@@ -14,7 +14,7 @@ class Serialize:
     def change_config(serialization_type, filename):
         cfgfile = open("config.ini", 'w')
         config = configparser.ConfigParser()
-        # add the settings to the structure of the file, and lets write it out...
+        # add the settings to the structure of the file, and lets write it out
         if not config.has_section('serialization'):
             config.add_section('serialization')
         config.set('serialization', 'name', serialization_type)
@@ -32,7 +32,7 @@ class Serialize:
 
     def load(self):
         serial = self.read_config()
-        temp = [];
+        temp = []
         if serial[0] == 'pickle':
             temp = Pickle(serial[1]).read()
         elif serial[0] == "json":

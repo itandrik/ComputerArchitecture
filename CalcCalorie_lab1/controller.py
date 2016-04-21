@@ -41,4 +41,3 @@ class Controller:
         input()
         if self.view.is_dump():
             self.serialize.dump(data)
-

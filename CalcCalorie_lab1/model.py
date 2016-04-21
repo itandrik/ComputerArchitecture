@@ -26,15 +26,19 @@ class Model:
         self.age = age
         self.pa = pa
         if self.compare():
-            calories1 = 66.5 + (13.75 * self.weight) + (5.003 * self.height) - (6.775 * self.age)
+            calories1 = 66.5 + (13.75 * self.weight) + \
+                        (5.003 * self.height) - (6.775 * self.age)
         else:
-            calories1 = 655.1 + (9.563 * self.weight) + (1.85 * self.height) - (4.676 * self.age)
+            calories1 = 655.1 + (9.563 * self.weight) + \
+                        (1.85 * self.height) - (4.676 * self.age)
 
         # Calculating with Muffin-Jeor formula
         if self.compare():
-            calories2 = 5 + (10 * self.weight) + (6.25 * self.height) - (5 * self.age)
+            calories2 = 5 + (10 * self.weight) + \
+                        (6.25 * self.height) - (5 * self.age)
         else:
-            calories2 = (10 * self.weight) + (6.25 *self. height) - (5 * self.age) - 161
+            calories2 = (10 * self.weight) + \
+                        (6.25 * self. height) - (5 * self.age) - 161
 
         # Average value for more accuracy value
         return self._calculate_pa() * ((calories1 + calories2) / 2)
@@ -52,7 +56,7 @@ class Model:
             gender = 'female'
         print ('Gender : %s; Weight : %dkg; Height : %dsm;\n' \
               ' Age : %d; Physical activity : %s; Calories : %f' % \
-              ( gender, self.weight, self.height,
+              (gender, self.weight, self.height,
                self.age, View().str2[self.pa], self.calculate_calories()))
 
 

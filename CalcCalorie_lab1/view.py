@@ -1,6 +1,7 @@
 # Printing all points to
 # choose to calculate calories
 
+
 class View:
     def __init__(self):
         self.str1 = ("Gender:", "1.Male", "2.Female")
@@ -10,8 +11,8 @@ class View:
         self.str3 = ("1. Calculate your calories", "2. Get results from file",
                 "3. Change configuration file", "4. Exit")
         self.str4 = ("1.Pickle", "2. JSON", "3.YAML")
-        self.str5 = ("Do you want to write your result into the file?", "1.Yes", "2. No")
-
+        self.str5 = ("Do you want to write your result into the file?",
+                    "1.Yes", "2. No")
 
     # Printing menu of age choice
     def read_age(self):
@@ -26,7 +27,6 @@ class View:
             except (NameError, SyntaxError):
                 print("Wrong input! Repeat please")
         return age
-
 
     # Printing menu of gender choice
     def read_gender(self):
@@ -43,7 +43,6 @@ class View:
                 print("Wrong input! Repeat please")
         return gender
 
-
     # Printing menu of weight choice
     def read_weight(self):
         while True:
@@ -57,7 +56,6 @@ class View:
                 print("Wrong input! Repeat please")
         return weight
 
-
     # Printing menu of height choice
     def read_height(self):
         while True:
@@ -66,11 +64,10 @@ class View:
                 if ((height >= 120) & (height < 250)):
                     break
                 else:
-                    print("Repeat please, height should be between 120 and 250")
+                    print("Repeat please,height should be between 120 and 250")
             except (NameError, SyntaxError):
                 print("Wrong input! Repeat please")
         return height
-
 
     # Printing menu of physical activity choice
     def read_pa(self):
@@ -87,7 +84,6 @@ class View:
                 print("Wrong input! Repeat please")
         return pa
 
-
     # Printing main menu
     def create_menu(self):
         while True:
@@ -101,7 +97,6 @@ class View:
                     print("Wrong input! Try again")
             except (NameError, SyntaxError):
                 print ("Wrong input! Try again")
-
 
     # Printing menu for choosing type of serialization
     def read_serialization_type(self):
@@ -124,7 +119,6 @@ class View:
         else:
             return 'yaml'
 
-
     # Checking dump function
     # return boolean
     def is_dump(self):
@@ -142,12 +136,10 @@ class View:
             except (NameError, SyntaxError):
                 print("Wrong input! Repeat please")
 
-
-    # Printing menu, where user can change type of serialization and dump filename
+    # Printing menu, where user can change type of serialization, dump filename
     def change_serialization_file(self):
         inp = input("Enter your file name(without file format) : ")
         return self.read_serialization_type(), inp
-
 
     # Printing result of program
     def get_info(self, res):

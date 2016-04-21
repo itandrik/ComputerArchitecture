@@ -3,7 +3,7 @@ import pickle
 
 class Pickle:
 
-    def __init__(self,file_name):
+    def __init__(self, file_name):
         self.file_name = file_name
 
     # Serializing of data to the .pickle file
