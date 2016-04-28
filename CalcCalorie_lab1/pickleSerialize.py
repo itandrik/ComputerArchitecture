@@ -17,4 +17,4 @@ class Pickle:
             with open(self.file_name + '.pickle', 'rt') as f:
                 return pickle.load(f)
         except IOError:
-            print ("File doesn't exist")
+            print("File doesn't exist")

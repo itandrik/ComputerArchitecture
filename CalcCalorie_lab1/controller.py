@@ -34,10 +34,9 @@ class Controller:
         height = self.view.read_height()
         age = self.view.read_age()
         pa = self.view.read_pa()
-        model = Model()
-        calories = model.calculate_calories(gender, weight, height, age, pa)
-        self.view.get_info(calories)
-        data = (gender, weight, height, age, pa, calories)
+        model = Model(gender, weight, height, age, pa)
+        self.view.get_info(model.get_info())
+        data = (gender, weight, height, age, pa, model.calculate_calories())
         input()
         if self.view.is_dump():
             self.serialize.dump(data)

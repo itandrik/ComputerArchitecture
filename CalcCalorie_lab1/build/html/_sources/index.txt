@@ -19,6 +19,9 @@ Contents:
     yamlSerialize
     pickleSerialize
     serialize
+    controller_args
+    mock_test
+
 
 Indices and tables
 ==================
