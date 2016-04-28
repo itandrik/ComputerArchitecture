@@ -42,37 +42,34 @@
           <div class="body">
             
   <p>import pickle</p>
-<p># Serializing of data to the .pickle file
-def pickle_dump(filename, data):</p>
+<p>class Pickle:</p>
 <blockquote>
 <div><dl class="docutils">
-<dt>with open(filename + &#8216;.pickle&#8217;, &#8216;at&#8217;) as f:</dt>
+<dt>def __init__(self, file_name):</dt>
+<dd>self.file_name = file_name</dd>
+</dl>
+<p># Serializing of data to the .pickle file
+def dump(self, data):</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>with open(self.file_name + &#8216;.pickle&#8217;, &#8216;wt&#8217;) as f:</dt>
 <dd>pickle.dump(data, f)</dd>
 </dl>
 </div></blockquote>
 <p># Deserialization of data from the .pickle file
-def pickle_load(filename):</p>
+def read(self):</p>
 <blockquote>
 <div><dl class="docutils">
 <dt>try:</dt>
 <dd><dl class="first last docutils">
-<dt>with open(filename + &#8216;.pickle&#8217;, &#8216;rt&#8217;) as f:</dt>
-<dd><p class="first">objs = []
-while 1:</p>
-<blockquote class="last">
-<div><dl class="docutils">
-<dt>try:</dt>
-<dd>objs.append(pickle.load(f))</dd>
-<dt>except EOFError:</dt>
-<dd>return objs</dd>
-</dl>
-</div></blockquote>
-</dd>
+<dt>with open(self.file_name + &#8216;.pickle&#8217;, &#8216;rt&#8217;) as f:</dt>
+<dd>return pickle.load(f)</dd>
 </dl>
 </dd>
 <dt>except IOError:</dt>
-<dd>print &#8220;File doesn&#8217;t exist&#8221;</dd>
+<dd>print(&#8220;File doesn&#8217;t exist&#8221;)</dd>
 </dl>
+</div></blockquote>
 </div></blockquote>
 
 

@@ -1,20 +1,9 @@
+import global_koefs
 # Printing all points to
 # choose to calculate calories
 
 
 class View:
-    def __init__(self):
-        self.str1 = ("Gender:", "1.Male", "2.Female")
-        self.str2 = ("Physical activity:", "1.Minimum physical activity",
-                     "2. 3 times per week", "3. 5 times per week",
-                     "4. Every day", "5. 2 times per day")
-        self.str3 = ("1. Calculate your calories", "2. Get results from file",
-                     "3. Change configuration file", "4. Exit")
-        self.str4 = ("1.Pickle", "2. JSON", "3.YAML")
-        self.str5 = ("Do you want to write your result into the file?",
-                     "1.Yes",
-                     "2. No")
-
     # Printing menu of age choice
     def read_age(self):
         while True:
@@ -32,7 +21,7 @@ class View:
     # Printing menu of gender choice
     def read_gender(self):
         while True:
-            for i in self.str1:
+            for i in global_koefs.str1:
                 print (i)
             try:
                 gender = eval(input())
@@ -74,7 +63,7 @@ class View:
     # Printing menu of physical activity choice
     def read_pa(self):
         while True:
-            for i in self.str2:
+            for i in global_koefs.str2:
                 print (i)
             try:
                 pa = eval(input())
@@ -89,7 +78,7 @@ class View:
     # Printing main menu
     def create_menu(self):
         while True:
-            for i in self.str3:
+            for i in global_koefs.str3:
                 print (i)
             try:
                 point = eval(input())
@@ -104,7 +93,7 @@ class View:
     def read_serialization_type(self):
         s_type = 0
         while True:
-            for i in self.str4:
+            for i in global_koefs.str4:
                 print (i)
             try:
                 s_type = eval(input())
@@ -125,7 +114,7 @@ class View:
     # return boolean
     def is_dump(self):
         while True:
-            for i in self.str5:
+            for i in global_koefs.str5:
                 print (i)
             try:
                 inp = eval(input())
@@ -145,5 +134,5 @@ class View:
         return self.read_serialization_type(), inp
 
     # Printing result of program
-    def get_info(self, res):
-        print (str(res) + " kilocalories")
+    def get_info(self, str):
+        print (str)

@@ -1,22 +1,20 @@
 import pickle
 
 
-# Serializing of data to the .pickle file
-def pickle_dump(filename, data):
-    with open(filename + '.pickle', 'at') as f:
-        pickle.dump(data, f)
+class Pickle:
 
+    def __init__(self, file_name):
+        self.file_name = file_name
 
-# Deserialization of data from the .pickle file
-def pickle_load(filename):
-    try:
-        with open(filename + '.pickle', 'rt') as f:
-            objs = []
-            while 1:
-                try:
-                    objs.append(pickle.load(f))
-                except EOFError:
-                    return objs
+    # Serializing of data to the .pickle file
+    def dump(self, data):
+        with open(self.file_name + '.pickle', 'wt') as f:
+            pickle.dump(data, f)
 
-    except IOError:
-        print "File doesn't exist"
+    # Deserialization of data from the .pickle file
+    def read(self):
+        try:
+            with open(self.file_name + '.pickle', 'rt') as f:
+                return pickle.load(f)
+        except IOError:
+            print("File doesn't exist")

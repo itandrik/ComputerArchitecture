@@ -55,15 +55,16 @@ class ControllerArgs:
 
     def parse(self):
         namespace = self.parser.parse_args(sys.argv[1:])
-        model=Model(namespace.gender,
-                    namespace.weight,
-                    namespace.height,
-                    namespace.age,
-                    namespace.activity)
-        self.view.get_info(model.get_info())
+        model=Model()
+        calories = model.calculate_calories(namespace.gender,
+                                            namespace.weight,
+                                            namespace.height,
+                                            namespace.age,
+                                            namespace.activity)
+        self.view.get_info(calories)
         data = (namespace.gender, namespace.weight,
                 namespace.height, namespace.age,
-                namespace.activity, model.calculate_calories())
+                namespace.activity, calories)
         input()
         if self.view.is_dump():
             self.serialize.dump(data)

@@ -2,8 +2,7 @@ import configparser
 from pickleSerialize import Pickle
 from jsonSerialize import Json
 from yamlSerialize import Yaml
-from view import View
-
+import global_koefs
 
 class Serialize:
 
@@ -14,7 +13,7 @@ class Serialize:
     def change_config(serialization_type, filename):
         cfgfile = open("config.ini", 'w')
         config = configparser.ConfigParser()
-        # add the settings to the structure of the file, and lets write it out...
+        # add the settings to the structure of the file, and lets write it out
         if not config.has_section('serialization'):
             config.add_section('serialization')
         config.set('serialization', 'name', serialization_type)
@@ -32,21 +31,24 @@ class Serialize:
 
     def load(self):
         serial = self.read_config()
-        temp = [];
-        if serial[0] == 'pickle':
-            temp = Pickle(serial[1]).read()
-        elif serial[0] == "json":
-            temp = Json(serial[1]).read()
-        elif serial[0] == "yaml":
-            temp = Yaml(serial[1]).read()
-        if temp[0] == 1:
-            gender = 'male'
-        else:
-            gender = 'female'
-        print ('Gender : %s; Weight : %dkg; Height : %dsm;\n' \
-              ' Age : %d; Physical activity : %s; Calories : %f' %\
-              (gender, temp[1], temp[2],
-               temp[3], View().str2[temp[4]], temp[5]))
+        temp = []
+        try:
+            if serial[0] == 'pickle':
+                temp = Pickle(serial[1]).read()
+            elif serial[0] == "json":
+                temp = Json(serial[1]).read()
+            elif serial[0] == "yaml":
+                temp = Yaml(serial[1]).read()
+            if temp[0] == 1:
+                gender = 'male'
+            else:
+                gender = 'female'
+            print ('Gender : %s; Weight : %dkg; Height : %dsm;\n'
+                   ' Age : %d; Physical activity : %s; Calories : %f' %
+                  (gender, temp[1], temp[2],
+                   temp[3], global_koefs.str2[temp[4]], temp[5]))
+        except TypeError:
+            print ("No such file")
 
     def dump(self, data):
         serial = self.read_config()

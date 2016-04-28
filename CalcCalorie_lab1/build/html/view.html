@@ -43,25 +43,34 @@
             
   <p># Printing all points to
 # choose to calculate calories</p>
-<p>str1 = (&#8220;Gender:&#8221;, &#8220;1.Male&#8221;, &#8220;2.Female&#8221;)
-str2 = (&#8220;Physical activity:&#8221;, &#8220;1.Minimum physical activity&#8221;,</p>
+<dl class="docutils">
+<dt>class View:</dt>
+<dd><dl class="first docutils">
+<dt>def __init__(self):</dt>
+<dd><p class="first">self.str1 = (&#8220;Gender:&#8221;, &#8220;1.Male&#8221;, &#8220;2.Female&#8221;)
+self.str2 = (&#8220;Physical activity:&#8221;, &#8220;1.Minimum physical activity&#8221;,</p>
 <blockquote>
 <div>&#8220;2. 3 times per week&#8221;, &#8220;3. 5 times per week&#8221;,
 &#8220;4. Every day&#8221;, &#8220;5. 2 times per day&#8221;)</div></blockquote>
 <dl class="docutils">
-<dt>str3 = (&#8220;1. Calculate your calories&#8221;, &#8220;2. Get results from file&#8221;,</dt>
+<dt>self.str3 = (&#8220;1. Calculate your calories&#8221;, &#8220;2. Get results from file&#8221;,</dt>
 <dd>&#8220;3. Change configuration file&#8221;, &#8220;4. Exit&#8221;)</dd>
 </dl>
-<p>str4 = (&#8220;1.Pickle&#8221;, &#8220;2. JSON&#8221;, &#8220;3.YAML&#8221;)
-str5 = (&#8220;Do you want to write your result into the file?&#8221;, &#8220;1.Yes&#8221;, &#8220;2. No&#8221;)</p>
+<p>self.str4 = (&#8220;1.Pickle&#8221;, &#8220;2. JSON&#8221;, &#8220;3.YAML&#8221;)
+self.str5 = (&#8220;Do you want to write your result into the file?&#8221;,</p>
+<blockquote class="last">
+<div>&#8220;1.Yes&#8221;,
+&#8220;2. No&#8221;)</div></blockquote>
+</dd>
+</dl>
 <p># Printing menu of age choice
-def read_age():</p>
+def read_age(self):</p>
 <blockquote>
 <div><dl class="docutils">
 <dt>while True:</dt>
 <dd><dl class="first last docutils">
 <dt>try:</dt>
-<dd><p class="first">age = input(&#8220;Age: &#8221;)
+<dd><p class="first">age = eval(input(&#8220;Age: &#8221;))
 if age &gt;= 13 &amp; age &lt; 80:</p>
 <blockquote>
 <div>break</div></blockquote>
@@ -79,16 +88,16 @@ print(&#8220;Repeat please, age should be between 13 and 80&#8221;)</dd>
 <p>return age</p>
 </div></blockquote>
 <p># Printing menu of gender choice
-def read_gender():</p>
+def read_gender(self):</p>
 <blockquote>
 <div><dl class="docutils">
 <dt>while True:</dt>
 <dd><dl class="first last docutils">
-<dt>for i in str1:</dt>
-<dd>print i</dd>
+<dt>for i in self.str1:</dt>
+<dd>print (i)</dd>
 <dt>try:</dt>
-<dd><p class="first">gender = input()
-if gender &gt; 0 &amp; gender &lt; 3:</p>
+<dd><p class="first">gender = eval(input())
+if ((gender &gt; 0) &amp; (gender &lt; 3)):</p>
 <blockquote>
 <div>break</div></blockquote>
 <dl class="last docutils">
@@ -104,14 +113,14 @@ if gender &gt; 0 &amp; gender &lt; 3:</p>
 <p>return gender</p>
 </div></blockquote>
 <p># Printing menu of weight choice
-def read_weight():</p>
+def read_weight(self):</p>
 <blockquote>
 <div><dl class="docutils">
 <dt>while True:</dt>
 <dd><dl class="first last docutils">
 <dt>try:</dt>
-<dd><p class="first">weight = input(&#8220;Weight: &#8221;)
-if weight &gt;= 35 &amp; weight &lt; 250:</p>
+<dd><p class="first">weight = eval(input(&#8220;Weight: &#8221;))
+if ((weight &gt;= 35) &amp; (weight &lt; 250)):</p>
 <blockquote>
 <div>break</div></blockquote>
 <dl class="last docutils">
@@ -127,19 +136,23 @@ if weight &gt;= 35 &amp; weight &lt; 250:</p>
 <p>return weight</p>
 </div></blockquote>
 <p># Printing menu of height choice
-def read_height():</p>
+def read_height(self):</p>
 <blockquote>
 <div><dl class="docutils">
 <dt>while True:</dt>
 <dd><dl class="first last docutils">
 <dt>try:</dt>
-<dd><p class="first">height = input(&#8220;Height in cm: &#8221;)
-if height &gt;= 120 &amp; height &lt; 250:</p>
+<dd><p class="first">height = eval(input(&#8220;Height in cm: &#8221;))
+if ((height &gt;= 120) &amp; (height &lt; 250)):</p>
 <blockquote>
 <div>break</div></blockquote>
 <dl class="last docutils">
 <dt>else:</dt>
-<dd>print(&#8220;Repeat please, height should be between 120 and 250&#8221;)</dd>
+<dd><dl class="first last docutils">
+<dt>print(&#8220;Repeat please,&#8221;</dt>
+<dd>&#8221; height should be between 120 and 250&#8221;)</dd>
+</dl>
+</dd>
 </dl>
 </dd>
 <dt>except (NameError, SyntaxError):</dt>
@@ -150,16 +163,16 @@ if height &gt;= 120 &amp; height &lt; 250:</p>
 <p>return height</p>
 </div></blockquote>
 <p># Printing menu of physical activity choice
-def read_pa():</p>
+def read_pa(self):</p>
 <blockquote>
 <div><dl class="docutils">
 <dt>while True:</dt>
 <dd><dl class="first last docutils">
-<dt>for i in str2:</dt>
-<dd>print i</dd>
+<dt>for i in self.str2:</dt>
+<dd>print (i)</dd>
 <dt>try:</dt>
-<dd><p class="first">pa = input()
-if pa &gt;= 1 &amp; pa &lt;= 5:</p>
+<dd><p class="first">pa = eval(input())
+if ((pa &gt;= 1) &amp; (pa &lt;= 5)):</p>
 <blockquote>
 <div>break</div></blockquote>
 <dl class="last docutils">
@@ -175,16 +188,16 @@ if pa &gt;= 1 &amp; pa &lt;= 5:</p>
 <p>return pa</p>
 </div></blockquote>
 <p># Printing main menu
-def create_menu():</p>
+def create_menu(self):</p>
 <blockquote>
 <div><dl class="docutils">
 <dt>while True:</dt>
 <dd><dl class="first last docutils">
-<dt>for i in str3:</dt>
-<dd>print i</dd>
+<dt>for i in self.str3:</dt>
+<dd>print (i)</dd>
 <dt>try:</dt>
-<dd><p class="first">point = input()
-if point &gt;= 1 &amp; point &lt;= 4:</p>
+<dd><p class="first">point = eval(input())
+if ((point &gt;= 1) &amp; (point &lt;= 4)):</p>
 <blockquote>
 <div>return point</div></blockquote>
 <dl class="last docutils">
@@ -199,17 +212,17 @@ if point &gt;= 1 &amp; point &lt;= 4:</p>
 </dl>
 </div></blockquote>
 <p># Printing menu for choosing type of serialization
-def read_serialization_type():</p>
+def read_serialization_type(self):</p>
 <blockquote>
 <div><p>s_type = 0
 while True:</p>
 <blockquote>
 <div><dl class="docutils">
-<dt>for i in str4:</dt>
-<dd>print i</dd>
+<dt>for i in self.str4:</dt>
+<dd>print (i)</dd>
 <dt>try:</dt>
-<dd><p class="first">s_type = input()
-if s_type &gt;= 1 &amp; s_type &lt;= 3:</p>
+<dd><p class="first">s_type = eval(input())
+if ((s_type &gt;= 1) &amp; (s_type &lt;= 3)):</p>
 <blockquote>
 <div>break</div></blockquote>
 <dl class="last docutils">
@@ -232,15 +245,15 @@ if s_type &gt;= 1 &amp; s_type &lt;= 3:</p>
 </div></blockquote>
 <p># Checking dump function
 # return boolean
-def is_dump():</p>
+def is_dump(self):</p>
 <blockquote>
 <div><dl class="docutils">
 <dt>while True:</dt>
 <dd><dl class="first last docutils">
-<dt>for i in str5:</dt>
-<dd>print i</dd>
+<dt>for i in self.str5:</dt>
+<dd>print (i)</dd>
 <dt>try:</dt>
-<dd><p class="first">inp = input()
+<dd><p class="first">inp = eval(input())
 if inp == 1:</p>
 <blockquote>
 <div>return True</div></blockquote>
@@ -257,15 +270,18 @@ if inp == 1:</p>
 </dd>
 </dl>
 </div></blockquote>
-<p># Printing menu, where user can change type of serialization and dump filename
-def change_serialization_file():</p>
+<p># Printing menu, where user can change
+#  type of serialization and dump filename
+def change_serialization_file(self):</p>
 <blockquote>
-<div>inp = raw_input(&#8220;Enter your file name(without file format) : &#8221;)
-return read_serialization_type(), inp</div></blockquote>
+<div>inp = input(&#8220;Enter your file name(without file format) : &#8221;)
+return self.read_serialization_type(), inp</div></blockquote>
 <p># Printing result of program
-def get_info(result):</p>
-<blockquote>
-<div>print (str(result) + &#8221; kilocalories&#8221;)</div></blockquote>
+def get_info(self, res):</p>
+<blockquote class="last">
+<div>print (str(res) + &#8221; kilocalories&#8221;)</div></blockquote>
+</dd>
+</dl>
 
 
           </div>

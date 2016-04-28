@@ -41,102 +41,90 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <dl class="docutils">
-<dt>from view import View</dt>
-<dd># Creating model. Describing functions,</dd>
-</dl>
-<p># which calculate calories, using human parameters</p>
+  <p>import sys
+import argparse
+from model import Model
+from view import View
+from serialize import Serialize</p>
 <dl class="docutils">
-<dt>class Model:</dt>
-<dd><p class="first"># Calculating index of physical activity
-def _calculate_pa(self):</p>
+<dt>class ControllerArgs:</dt>
+<dd><dl class="first last docutils">
+<dt>def __init__(self):</dt>
+<dd>self.parser = self._create_parser()
+self.view = View()
+self.serialize = Serialize()</dd>
+<dt>def _create_parser(self):</dt>
+<dd><dl class="first docutils">
+<dt>parser = argparse.ArgumentParser(</dt>
+<dd><p class="first">prog=&#8217;Calories calculator&#8217;,
+description=&#8217;&#8216;&#8217;Use this program to know quantity</p>
 <blockquote>
-<div><dl class="docutils">
-<dt>if self.pa == 1:</dt>
-<dd>return 1.2</dd>
-<dt>elif self.pa == 2:</dt>
-<dd>return 1.375</dd>
-<dt>elif self.pa == 3:</dt>
-<dd>return 1.4625</dd>
-<dt>elif self.pa == 4:</dt>
-<dd>return 1.6375</dd>
-<dt>elif self.pa == 5:</dt>
-<dd>return 1.725</dd>
+<div>of calories you spend per day&#8217;&#8216;&#8217;,</div></blockquote>
+<p class="last">epilog=&#8217;&#8216;&#8217;(c) Chersilmuk inc.&#8217;&#8216;&#8217;</p>
+</dd>
 </dl>
-</div></blockquote>
-<p># Calculating calories, which spend person per day
-def calculate_calories(self, gender, weight, height, age, pa):</p>
+<p>)
+group = parser.add_argument_group(title=&#8217;Parameters&#8217;)
+group.add_argument(&#8216;&#8211;gender&#8217;, &#8216;-g&#8217;,</p>
 <blockquote>
-<div><p># Calculating with Harris-Benedict formula
-self.gender = gender
-self.weight = weight
-self.height = height
-self.age = age
-self.pa = pa
-if self.compare():</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>calories1 = 66.5 +</dt>
-<dd>(13.75 * self.weight) +(5.003 * self.height) -(6.775 * self.age)</dd>
-</dl>
-</div></blockquote>
+<div>required=True,
+choices=[1, 2],
+type=int,
+metavar=&#8217;<a href="#id3"><span class="problematic" id="id4">|1 - MALE, 2 - FEMALE|</span></a>&#8216;)</div></blockquote>
 <dl class="docutils">
-<dt>else:</dt>
-<dd><dl class="first last docutils">
-<dt>calories1 = 655.1 + </dt>
-<dd>(9.563 * self.weight) +(1.85 * self.height) -(4.676 * self.age)</dd>
-</dl>
+<dt>group.add_argument(&#8216;&#8211;activity&#8217;,</dt>
+<dd><p class="first">&#8216;-pa&#8217;,
+required=True,
+choices=[1, 2, 3, 4, 5],
+type=int,
+metavar=&#8217;<a href="#id1"><span class="problematic" id="id2">|</span></a>Physical activity :&#8217;</p>
+<blockquote class="last">
+<div>&#8216; 1 - Minimum physical activity&#8217;
+&#8216;2 - 3 times per week &#8216;
+&#8216;3 - 5 times per week&#8217;
+&#8216;4 - Every day 5 - 2 times per day|&#8217;)</div></blockquote>
 </dd>
+<dt>group.add_argument(&#8216;&#8211;weight&#8217;, &#8216;-w&#8217;,</dt>
+<dd>required=True,
+choices=range(35, 239, 1),
+type=int,
+metavar=&#8217;<a href="#id5"><span class="problematic" id="id6">|WEIGHT &gt;34 and &lt;240|</span></a>&#8216;)</dd>
+<dt>group.add_argument(&#8216;&#8211;height&#8217;,</dt>
+<dd>&#8216;-ht&#8217;,
+required=True,
+choices=range(120, 249, 1),
+type=int,
+metavar=&#8217;<a href="#id7"><span class="problematic" id="id8">|HEIGHT &gt;119 and &lt;250|</span></a>&#8216;)</dd>
+<dt>group.add_argument(&#8216;&#8211;age&#8217;,</dt>
+<dd>&#8216;-a&#8217;,
+required=True,
+choices=range(13, 79, 1),
+type=int,
+metavar=&#8217;<a href="#id9"><span class="problematic" id="id10">|AGE &gt;12 and &lt;80|</span></a>&#8216;)</dd>
 </dl>
-<p># Calculating with Muffin-Jeor formula
-if self.compare():</p>
+<p class="last">return parser</p>
+</dd>
+<dt>def parse(self):</dt>
+<dd><p class="first">namespace = self.parser.parse_args(sys.argv[1:])
+model=Model()
+calories = model.calculate_calories(namespace.gender,</p>
 <blockquote>
-<div><dl class="docutils">
-<dt>calories2 = 5 + (10 * self.weight) +</dt>
-<dd>(6.25 * self.height) -(5 * self.age)</dd>
-</dl>
-</div></blockquote>
-<dl class="docutils">
-<dt>else:</dt>
-<dd><dl class="first last docutils">
-<dt>calories2 = (10 * self.weight) +</dt>
-<dd>(6.25 * self. height) -(5 * self.age) - 161</dd>
-</dl>
-</dd>
-</dl>
-<p># Average value for more accuracy value
-return self._calculate_pa() * ((calories1 + calories2) / 2)</p>
-</div></blockquote>
-<dl class="last docutils">
-<dt>def compare(self):</dt>
-<dd><dl class="first last docutils">
-<dt>if self.gender == 1:</dt>
-<dd>return True</dd>
-<dt>else:</dt>
-<dd>return False</dd>
-</dl>
-</dd>
-<dt>def get_info(self):</dt>
-<dd><dl class="first last docutils">
-<dt>if self.compare():</dt>
-<dd>gender = &#8216;male&#8217;</dd>
-<dt>else:</dt>
-<dd>gender = &#8216;female&#8217;</dd>
-<dt>print (&#8216;Gender <span class="classifier-delimiter">:</span> <span class="classifier">%s; Weight</span> <span class="classifier-delimiter">:</span> <span class="classifier">%dkg; Height</span> <span class="classifier-delimiter">:</span> <span class="classifier">%dsm;\n&#8217;</span></dt>
-<dd><blockquote class="first">
-<div>&#8216; Age : %d; Physical activity : %s; Calories : %f&#8217;) % </div></blockquote>
-<dl class="last docutils">
-<dt>(gender, self.weight, self.height,</dt>
-<dd>self.age, View().str2[self.pa], self.calculate_calories())</dd>
-</dl>
+<div>namespace.weight,
+namespace.height,
+namespace.age,
+namespace.activity)</div></blockquote>
+<p>self.view.get_info(calories)
+data = (namespace.gender, namespace.weight,</p>
+<blockquote>
+<div>namespace.height, namespace.age,
+namespace.activity, calories)</div></blockquote>
+<p>input()
+if self.view.is_dump():</p>
+<blockquote class="last">
+<div>self.serialize.dump(data)</div></blockquote>
 </dd>
 </dl>
 </dd>
-</dl>
-</dd>
-<dt>if __name__ == &#8220;__main__&#8221;:</dt>
-<dd>import doctest
-doctest.testmod()</dd>
 </dl>
 
 
@@ -147,7 +135,7 @@ doctest.testmod()</dd>
         <div class="sphinxsidebarwrapper">
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/model.txt"
+    <li><a href="_sources/controller_args.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">

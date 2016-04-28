@@ -41,102 +41,13 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <dl class="docutils">
-<dt>from view import View</dt>
-<dd># Creating model. Describing functions,</dd>
-</dl>
-<p># which calculate calories, using human parameters</p>
+  <p>from unittest.mock import patch
+from model import Model</p>
 <dl class="docutils">
-<dt>class Model:</dt>
-<dd><p class="first"># Calculating index of physical activity
-def _calculate_pa(self):</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>if self.pa == 1:</dt>
-<dd>return 1.2</dd>
-<dt>elif self.pa == 2:</dt>
-<dd>return 1.375</dd>
-<dt>elif self.pa == 3:</dt>
-<dd>return 1.4625</dd>
-<dt>elif self.pa == 4:</dt>
-<dd>return 1.6375</dd>
-<dt>elif self.pa == 5:</dt>
-<dd>return 1.725</dd>
-</dl>
-</div></blockquote>
-<p># Calculating calories, which spend person per day
-def calculate_calories(self, gender, weight, height, age, pa):</p>
-<blockquote>
-<div><p># Calculating with Harris-Benedict formula
-self.gender = gender
-self.weight = weight
-self.height = height
-self.age = age
-self.pa = pa
-if self.compare():</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>calories1 = 66.5 +</dt>
-<dd>(13.75 * self.weight) +(5.003 * self.height) -(6.775 * self.age)</dd>
-</dl>
-</div></blockquote>
-<dl class="docutils">
-<dt>else:</dt>
-<dd><dl class="first last docutils">
-<dt>calories1 = 655.1 + </dt>
-<dd>(9.563 * self.weight) +(1.85 * self.height) -(4.676 * self.age)</dd>
-</dl>
-</dd>
-</dl>
-<p># Calculating with Muffin-Jeor formula
-if self.compare():</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>calories2 = 5 + (10 * self.weight) +</dt>
-<dd>(6.25 * self.height) -(5 * self.age)</dd>
-</dl>
-</div></blockquote>
-<dl class="docutils">
-<dt>else:</dt>
-<dd><dl class="first last docutils">
-<dt>calories2 = (10 * self.weight) +</dt>
-<dd>(6.25 * self. height) -(5 * self.age) - 161</dd>
-</dl>
-</dd>
-</dl>
-<p># Average value for more accuracy value
-return self._calculate_pa() * ((calories1 + calories2) / 2)</p>
-</div></blockquote>
-<dl class="last docutils">
-<dt>def compare(self):</dt>
-<dd><dl class="first last docutils">
-<dt>if self.gender == 1:</dt>
-<dd>return True</dd>
-<dt>else:</dt>
-<dd>return False</dd>
-</dl>
-</dd>
-<dt>def get_info(self):</dt>
-<dd><dl class="first last docutils">
-<dt>if self.compare():</dt>
-<dd>gender = &#8216;male&#8217;</dd>
-<dt>else:</dt>
-<dd>gender = &#8216;female&#8217;</dd>
-<dt>print (&#8216;Gender <span class="classifier-delimiter">:</span> <span class="classifier">%s; Weight</span> <span class="classifier-delimiter">:</span> <span class="classifier">%dkg; Height</span> <span class="classifier-delimiter">:</span> <span class="classifier">%dsm;\n&#8217;</span></dt>
-<dd><blockquote class="first">
-<div>&#8216; Age : %d; Physical activity : %s; Calories : %f&#8217;) % </div></blockquote>
-<dl class="last docutils">
-<dt>(gender, self.weight, self.height,</dt>
-<dd>self.age, View().str2[self.pa], self.calculate_calories())</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-<dt>if __name__ == &#8220;__main__&#8221;:</dt>
-<dd>import doctest
-doctest.testmod()</dd>
+<dt>with patch(&#8216;model.Model&#8217;) as mock_class:</dt>
+<dd>instance = mock_class.return_value
+instance.calculate_calories.return_value = 2546.44268125
+assert Model().calculate_calories(1, 56, 178, 25, 4) == 2546.44268125</dd>
 </dl>
 
 
@@ -147,7 +58,7 @@ doctest.testmod()</dd>
         <div class="sphinxsidebarwrapper">
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/model.txt"
+    <li><a href="_sources/mock_test.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
