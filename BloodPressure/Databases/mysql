@@ -1,0 +1,29 @@
+CREATE TABLE person (
+		id_person INT PRIMARY KEY AUTO_INCREMENT,
+		first_name VARCHAR(45),
+		last_name VARCHAR(45),
+		middle_name VARCHAR(45),
+		age INT,
+		weight FLOAT,
+		height INT,
+		phone_number VARCHAR(45));
+
+CREATE TABLE doctor (
+		id_doctor INTEGER PRIMARY KEY AUTO_INCREMENT,
+		first_name VARCHAR(45),
+		last_name VARCHAR(45),
+		middle_name VARCHAR(45),
+		profession VARCHAR(45),
+		phone_number VARCHAR(45));
+
+CREATE TABLE pressure_data (
+		id_pressure_data INT PRIMARY KEY AUTO_INCREMENT,
+		date DATE,
+		time TIME,
+		upper_level INT,
+		lower_level INT,
+		pulse INT,
+		person_id_person INT,
+		doctor_id_doctor INT,
+		FOREIGN KEY(person_id_person) REFERENCES person(id_person),
+		FOREIGN KEY(doctor_id_doctor) REFERENCES doctor(id_doctor));
