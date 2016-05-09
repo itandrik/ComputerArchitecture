@@ -1,0 +1,31 @@
+CREATE SEQUENCE id_person;
+CREATE TABLE person (
+		id_person INTEGER PRIMARY KEY DEFAULT NEXTVAL('id_person'),
+		first_name VARCHAR(45),
+		last_name VARCHAR(45),
+		middle_name VARCHAR(45),
+		age INTEGER,
+		weight FLOAT,
+		height INTEGER,
+		phone_number VARCHAR(45));
+
+CREATE SEQUENCE id_doctor;
+CREATE TABLE doctor (
+		id_doctor INTEGER PRIMARY KEY DEFAULT NEXTVAL('id_doctor'),
+		first_name VARCHAR(45),
+		last_name VARCHAR(45),
+		middle_name VARCHAR(45),
+		profession VARCHAR(45),
+		phone_number VARCHAR(45));
+
+CREATE SEQUENCE id_pressure_data;
+CREATE TABLE pressure_data (
+		id_pressure_data INTEGER PRIMARY KEY DEFAULT NEXTVAL('id_pressure_data'),
+		"date" DATE,
+		"time" TIME,
+		upper_level INTEGER,
+		lower_level INTEGER,
+		pulse INTEGER,
+		person_id_person INTEGER REFERENCES person(id_person),
+		doctor_id_doctor INTEGER REFERENCES doctor(id_doctor)
+		);
