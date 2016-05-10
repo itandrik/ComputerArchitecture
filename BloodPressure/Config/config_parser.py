@@ -15,6 +15,8 @@ class MyConfigParser:
         config.set('database', 'name', database_name)
         config.write(cfgfile)
         cfgfile.close()
+        print("Config has changed successfully!!")
+
 
     def read_config(self):
         try:

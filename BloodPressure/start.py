@@ -1,6 +1,6 @@
 from controller import Controller
 
 
-#start of program
+# Start of program
 if __name__ == '__main__':
     Controller().main()

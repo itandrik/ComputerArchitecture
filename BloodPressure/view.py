@@ -5,10 +5,10 @@ from BloodPressure.Globals.globals import *
 class View:
     def create_menu(self):
         for point in menu_str:
-            print(point)
+            print("%s" % point)
         try:
             point = eval(input())
-            if ((point >= 1) & (point <= 13)):
+            if point >= 1 & point <= 13:
                 return point
             else:
                 print("Wrong input! Try again")
@@ -16,9 +16,18 @@ class View:
             print("Wrong input! Try again")
 
     def get_info(self, data_array, table_name):
-        i = 0
-        print("ID: "+data_array[i])
-        i+=1
-        for point in table_data[table_name]:
-            print(point+": "+data_array[i])
-            i+=1
+        if len(data_array) == 0:
+            print("There is no records in database")
+            return
+        for row in data_array:
+            print('------------------------------')
+            i = 0
+            print("ID: "+str(row[i]))
+            i += 1
+            for point in table_data[table_name]:
+                print(point+": " + str(row[i]))
+                i += 1
+            print('------------------------------')
+
+    def show_exit(self):
+        print("\n\n--------- Exit from program!!! ---------")
