@@ -1,6 +1,6 @@
 from view import View
-from BloodPressure.Work_with_db import *
-
+from BloodPressure.Work_with_db.db import SqlWorker
+from BloodPressure.Config.config_parser import ConfigParser
 table_data = {
     "pressure_data": ("date", "time", "upper level", "lower level", "pulse", "person_id_person", "doctor_id_doctor"),
     "person": ("first name", "last name", "middle name", "age", "weight", "height", "phone_number"),
@@ -22,28 +22,27 @@ class Controller:
         self.view = View()
 
     def main(self):
-        view = View()
         while True:
-            point = view.create_menu()
+            point = self.view.create_menu()
             self.handler(operations[int(point//4)],tables[(point-1)%3])
 
     def handler(self, operation, table_name):
         if operation == "load":
             id = input("Enter id")
-            model.load(table_name,id)
+            self.sql_worker.load(table_name,id)
         elif operation == "add":
             data = []
             for i in table_data[table_name]:
                 point = input("Enter" + i)
                 data.append(point)
-            model.insert(table_name,data)
+            self.sql_worker.insert(table_name,data)
         elif operation == "change":
             data = []
             id = input("Enter id")
             for i in table_data[table_name]:
                 point = input("Enter" + i)
                 data.append(point)
-            model.update(table_name, data)
+            self.sql_worker.update(table_name, data)
         elif operation == "delete":
             id = input("Enter id")
-            model.delete(table_name, id)
+            self.sql_worker.delete(table_name, id)

@@ -1,3 +1,4 @@
+#menu string
 menu_str = ("1. Show persons;",
             "2. Show doctors;",
             "3. Show diary;",
@@ -9,8 +10,39 @@ menu_str = ("1. Show persons;",
             "9. Delete record from diary;",
             "10. Change person characteristics;",
             "11. Change doctor characteristics;",
-            "12. Change record in the diary;")
+            "12. Change record in the diary;"
+            "13. Change database")
 
 error_message = "Wrong input!"
 person_id_msg = "Enter person id : "
 doctor_id_msg = "Enter doctor id : "
+
+#SQL queries for work_with_db
+select_sql = {
+        "pressure_data":"SELECT (date,time,upper_level,"
+        " lower_level, pulse, doctor_id_doctor)"
+        " FROM pressure_data WHERE person_id_person=",
+        "person":"SELECT * FROM person",
+        "doctor":"SELECT * FROM doctor"
+}
+insert_sql = {
+        "pressure_data":"(date,time,upper_level,"
+        " lower_level, pulse, person_id_person, doctor_id_doctor)",
+        "person":"(first_name,last_name,middle_name,age,weight,height,phone_number)",
+        "doctor":"(first_name,last_name,middle_name,profession,phone_number)"
+}
+delete_sql = {
+        "pressure_data":"id_pressure_data",
+        "person":"id_person",
+        "doctor":"id_doctor"
+}
+
+update_sql = {
+        "pressure_data":["date=","time=","upper_level=",
+                         "lower_level=","pulse=","person_id_person=",
+                         "doctor_id_doctor="],
+        "person":["first_name=", "last_name=", "middle_name=",
+                  "age=", "weight=", "height=", "phone_number="],
+        "doctor":["first_name=", "last_name=", "middle_name=",
+                  "profession=", "phone_number="]
+}

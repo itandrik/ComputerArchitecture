@@ -1,35 +1,7 @@
 import sqlite3
 import mysql.connector
 import psycopg2
-
-select_sql = {
-        "pressure_data":"SELECT (date,time,upper_level,"
-        " lower_level, pulse, doctor_id_doctor)"
-        " FROM pressure_data WHERE person_id_person=",
-        "person":"SELECT * FROM person",
-        "doctor":"SELECT * FROM doctor"
-}
-insert_sql = {
-        "pressure_data":"(date,time,upper_level,"
-        " lower_level, pulse, person_id_person, doctor_id_doctor)",
-        "person":"(first_name,last_name,middle_name,age,weight,height,phone_number)",
-        "doctor":"(first_name,last_name,middle_name,profession,phone_number)"
-}
-delete_sql = {
-        "pressure_data":"id_pressure_data",
-        "person":"id_person",
-        "doctor":"id_doctor"
-}
-
-update_sql = {
-        "pressure_data":["date=","time=","upper_level=",
-                         "lower_level=","pulse=","person_id_person=",
-                         "doctor_id_doctor="],
-        "person":["first_name=", "last_name=", "middle_name=",
-                  "age=", "weight=", "height=", "phone_number="],
-        "doctor":["first_name=", "last_name=", "middle_name=",
-                  "profession=", "phone_number="]
-}
+from BloodPressure.Globals.globals import *
 
 create_connector = {
         "mysql":mysql.connector.connect(user='root', password='4y4yndpiK', host='127.0.0.1', database='BloodPressure'),
