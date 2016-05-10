@@ -5,7 +5,7 @@ class View:
             print(point)
         try:
             point = eval(input())
-            if ((point >= 1) & (point <= 12)):
+            if ((point >= 1) & (point <= 13)):
                 return point
             else:
                 print("Wrong input! Try again")
