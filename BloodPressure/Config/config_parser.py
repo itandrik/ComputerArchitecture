@@ -1,13 +1,13 @@
 import configparser
 
 
-class ConfigParser:
+class MyConfigParser:
     def __init__(self):
         self._parser = configparser.ConfigParser()
 
     @staticmethod
     def change_config(database_name):
-        cfgfile = open("config.ini", 'w')
+        cfgfile = open("/home/dron/ComputerArchitecture/BloodPressure/Config/config.ini", 'w')
         config = configparser.ConfigParser()
         # add the settings to the structure of the file, and lets write it out
         if not config.has_section('database'):
@@ -18,7 +18,7 @@ class ConfigParser:
 
     def read_config(self):
         try:
-            self._parser.read('config.ini')
+            self._parser.read('/home/dron/ComputerArchitecture/BloodPressure/Config/config.ini')
             return self._parser.get('database', 'name')
         except configparser.ParsingError:
             print('Could not parse:')
