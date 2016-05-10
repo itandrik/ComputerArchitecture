@@ -46,3 +46,23 @@ update_sql = {
         "doctor":["first_name=", "last_name=", "middle_name=",
                   "profession=", "phone_number="]
 }
+
+#Controller data
+table_data = {
+    "pressure_data": ("date", "time", "upper level", "lower level", "pulse", "person_id_person", "doctor_id_doctor"),
+    "person": ("first name", "last name", "middle name", "age", "weight", "height", "phone_number"),
+    "doctor": ("first name", "last name", "middle name", "profession", "phone number")
+}
+operations = {
+    0: "load",
+    1: "add",
+    2: "delete",
+    3: "change",
+    4: "config"
+}
+tables = {
+    0: "person",
+    1: "doctor",
+    2: "pressure_data"
+}
+databases = ("mysql", "sqlite", "postgreSQL")

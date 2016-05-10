@@ -5,7 +5,7 @@ from BloodPressure.Globals.globals import *
 
 create_connector = {
         "mysql":mysql.connector.connect(user='root', password='4y4yndpiK', host='127.0.0.1', database='BloodPressure'),
-        "sqlite":sqlite3.connect('../Databases/blood_pressure_sqlite'),
+        "sqlite":sqlite3.connect('/home/dron/ComputerArchitecture/BloodPressure/Databases/blood_pressure_sqlite'),
         "postgreSQL":psycopg2.connect(host='127.0.0.1', user='postgres', password='4y4yndpiK', dbname='mydb')
 }
 
@@ -47,15 +47,3 @@ class SqlWorker:
 
     def close_connection(self):
         self.con.close()
-
-def test():
-    sql_worker = SqlWorker('mysql')
-    rows = sql_worker.load('person')
-    for row in rows:
-        print (row)
-    print("-------------------------------")
-    sql_worker.update('person',2,("petro","vasuletz","anatoliyovich",19,73.3,167,"+38575638223"))
-    rows = sql_worker.load('person')
-    for row in rows:
-        print (row)
-test()
