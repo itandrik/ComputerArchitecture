@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>&lt;no title&gt; &mdash; BloodPressure 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="BloodPressure 1.0.0 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">BloodPressure 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <p>import sqlite3
+import mysql.connector
+import psycopg2
+from BloodPressure.Globals.globals import *</p>
+<p># it creates special connector it different ways
+create_connector = {</p>
+<blockquote>
+<div>&#8220;mysql&#8221;:mysql.connector.connect(user=&#8217;root&#8217;, password=&#8216;4y4yndpiK&#8217;, host=&#8216;127.0.0.1&#8217;, database=&#8217;BloodPressure&#8217;),
+&#8220;sqlite&#8221;:sqlite3.connect(&#8216;/home/dron/ComputerArchitecture/BloodPressure/Databases/blood_pressure_sqlite&#8217;),
+&#8220;postgreSQL&#8221;:psycopg2.connect(host=&#8216;127.0.0.1&#8217;, user=&#8217;postgres&#8217;, password=&#8216;4y4yndpiK&#8217;, dbname=&#8217;mydb&#8217;)</div></blockquote>
+<p>}</p>
+<p># Class, which works with 3 databases : sqlite, mysql and postgreSQL
+class SqlWorker:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>def __init__(self, db_type):</dt>
+<dd>self.con = create_connector[db_type]
+self.cur = self.con.cursor()</dd>
+<dt>def load(self, table_name, person_id=&#8221;&#8221;):</dt>
+<dd>self.cur.execute(select_sql[table_name] + person_id)
+return self.cur.fetchall()</dd>
+<dt>def insert(self, table_name, data_array):</dt>
+<dd><p class="first">strin = &#8220;INSERT INTO &#8220;+ table_name + insert_sql[table_name] +&#8221; VALUES(&#8221;
+for i in data_array:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>if isinstance(i,str):</dt>
+<dd>strin += &#8220;&#8217;&#8221; + i + &#8220;&#8217;, &#8220;</dd>
+</dl>
+<p>else: strin += str(i) + &#8221;, &#8220;</p>
+</div></blockquote>
+<p class="last">strin = strin[:-2]
+strin += &#8221;)&#8221;
+self.cur.execute(strin)
+self.con.commit()</p>
+</dd>
+<dt>def delete(self, table_name, id):</dt>
+<dd>self.cur.execute(&#8220;DELETE FROM &#8221; + table_name + &#8221; WHERE &#8221; + delete_sql[table_name] + &#8220;=&#8221; + str(id))</dd>
+<dt>def update(self, table_name, id, data_array):</dt>
+<dd><p class="first">strin = &#8220;UPDATE &#8220;+ table_name + &#8221; SET &#8221;
+for i in range(0,len(update_sql[table_name])):</p>
+<blockquote>
+<div><p>strin += update_sql[table_name][i]
+if isinstance(data_array[i],str):</p>
+<blockquote>
+<div>strin += &#8220;&#8217;&#8221; + data_array[i] + &#8220;&#8217;, &#8220;</div></blockquote>
+<p>else: strin += str(data_array[i]) + &#8221;, &#8220;</p>
+</div></blockquote>
+<p class="last">strin = strin[:-2]
+strin += &#8221; WHERE &#8221; + delete_sql[table_name] + &#8220;=&#8221; + str(id)
+self.cur.execute(strin)</p>
+</dd>
+<dt>def close_connection(self):</dt>
+<dd>self.con.close()</dd>
+</dl>
+</div></blockquote>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/db.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">BloodPressure 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Chersilmuk.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

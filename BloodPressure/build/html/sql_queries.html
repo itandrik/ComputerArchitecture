@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>SQL Queries &mdash; BloodPressure 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="BloodPressure 1.0.0 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">BloodPressure 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="sql-queries">
+<h1>SQL Queries<a class="headerlink" href="#sql-queries" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="mysql">
+<h2>Mysql<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>CREATE TABLE person (</dt>
+<dd>id_person INT PRIMARY KEY AUTO_INCREMENT,
+first_name VARCHAR(45),
+last_name VARCHAR(45),
+middle_name VARCHAR(45),
+age INT,
+weight FLOAT,
+height INT,
+phone_number VARCHAR(45));</dd>
+<dt>CREATE TABLE doctor (</dt>
+<dd>id_doctor INTEGER PRIMARY KEY AUTO_INCREMENT,
+first_name VARCHAR(45),
+last_name VARCHAR(45),
+middle_name VARCHAR(45),
+profession VARCHAR(45),
+phone_number VARCHAR(45));</dd>
+<dt>CREATE TABLE pressure_data (</dt>
+<dd>id_pressure_data INT PRIMARY KEY AUTO_INCREMENT,
+date DATE,
+time TIME,
+upper_level INT,
+lower_level INT,
+pulse INT,
+person_id_person INT,
+doctor_id_doctor INT,
+FOREIGN KEY(person_id_person) REFERENCES person(id_person),
+FOREIGN KEY(doctor_id_doctor) REFERENCES doctor(id_doctor));</dd>
+</dl>
+</div>
+<div class="section" id="sqlite">
+<h2>SQLite<a class="headerlink" href="#sqlite" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>CREATE TABLE person (</dt>
+<dd>&#8220;id_person&#8221; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+&#8220;first_name&#8221; TEXT,
+&#8220;last_name&#8221; TEXT,
+&#8220;middle_name&#8221; TEXT,
+&#8220;age&#8221; INTEGER,
+&#8220;weight&#8221; FLOAT,
+&#8220;height&#8221; INTEGER,
+&#8220;phone_number&#8221; TEXT</dd>
+</dl>
+<p>);</p>
+<dl class="docutils">
+<dt>CREATE TABLE doctor (</dt>
+<dd>&#8220;id_doctor&#8221; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+&#8220;first_name&#8221; TEXT,
+&#8220;last_name&#8221; TEXT,
+&#8220;middle_name&#8221; TEXT,
+&#8220;profession&#8221; TEXT,
+&#8220;phone_number&#8221; TEXT</dd>
+</dl>
+<p>);</p>
+<dl class="docutils">
+<dt>CREATE TABLE pressure_data (</dt>
+<dd>&#8220;id_pressure_data&#8221; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+&#8220;date&#8221; DATE,
+&#8220;time&#8221; TIME,
+&#8220;upper_level&#8221; INTEGER,
+&#8220;lower_level&#8221; INTEGER,
+&#8220;pulse&#8221; INTEGER,
+&#8220;person_id_person&#8221; INTEGER,
+&#8220;doctor_id_doctor&#8221; INTEGER,
+FOREIGN KEY(person_id_person) REFERENCES person(id_person),
+FOREIGN KEY(doctor_id_doctor) REFERENCES doctor(id_doctor)
+);</dd>
+</dl>
+</div>
+<div class="section" id="postgresql">
+<h2>PostgreSQL<a class="headerlink" href="#postgresql" title="Permalink to this headline">¶</a></h2>
+<p>CREATE SEQUENCE id_person;
+CREATE TABLE person (</p>
+<blockquote>
+<div>id_person INTEGER PRIMARY KEY DEFAULT NEXTVAL(&#8216;id_person&#8217;),
+first_name VARCHAR(45),
+last_name VARCHAR(45),
+middle_name VARCHAR(45),
+age INTEGER,
+weight FLOAT,
+height INTEGER,
+phone_number VARCHAR(45));</div></blockquote>
+<p>CREATE SEQUENCE id_doctor;
+CREATE TABLE doctor (</p>
+<blockquote>
+<div>id_doctor INTEGER PRIMARY KEY DEFAULT NEXTVAL(&#8216;id_doctor&#8217;),
+first_name VARCHAR(45),
+last_name VARCHAR(45),
+middle_name VARCHAR(45),
+profession VARCHAR(45),
+phone_number VARCHAR(45));</div></blockquote>
+<p>CREATE SEQUENCE id_pressure_data;
+CREATE TABLE pressure_data (</p>
+<blockquote>
+<div>id_pressure_data INTEGER PRIMARY KEY DEFAULT NEXTVAL(&#8216;id_pressure_data&#8217;),
+&#8220;date&#8221; DATE,
+&#8220;time&#8221; TIME,
+upper_level INTEGER,
+lower_level INTEGER,
+pulse INTEGER,
+person_id_person INTEGER REFERENCES person(id_person),
+doctor_id_doctor INTEGER REFERENCES doctor(id_doctor)
+);</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">SQL Queries</a><ul>
+<li><a class="reference internal" href="#mysql">Mysql</a></li>
+<li><a class="reference internal" href="#sqlite">SQLite</a></li>
+<li><a class="reference internal" href="#postgresql">PostgreSQL</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/sql_queries.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">BloodPressure 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Chersilmuk.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

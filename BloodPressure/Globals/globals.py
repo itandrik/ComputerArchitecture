@@ -19,8 +19,7 @@ doctor_id_msg = "Enter doctor id : "
 
 #SQL queries for work_with_db
 select_sql = {
-        "pressure_data":"SELECT (date,time,upper_level,"
-        " lower_level, pulse, doctor_id_doctor)"
+        "pressure_data":"SELECT *"
         " FROM pressure_data WHERE person_id_person=",
         "person":"SELECT * FROM person",
         "doctor":"SELECT * FROM doctor"
