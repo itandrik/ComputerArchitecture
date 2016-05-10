@@ -20,9 +20,9 @@ class Controller:
         if operation == "load":
             if(table_name == "pressure_data"):
                 id = input("Enter id")
-                self.sql_worker.load(table_name,id)
+                view.get_info(self.sql_worker.load(table_name,id),table_name)
             else:
-                self.sql_worker.load(table_name)
+                view.get_info(self.sql_worker.load(table_name), table_name)
         elif operation == "add":
             data = []
             for i in table_data[table_name]:
@@ -38,7 +38,6 @@ class Controller:
             self.sql_worker.update(table_name, id, data)
         elif operation == "delete":
             id = input("Enter id")
-            self.sql_worker.delete(table_name, id)
             self.sql_worker.delete(table_name, id)
         elif operation=="config":
             for i in range(1, 4):
